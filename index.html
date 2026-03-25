@@ -56,23 +56,6 @@
       z-index: -1;
     }
 
-    /* 🔊 BOTÓN */
-    .sound-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      opacity: 0.6;
-      cursor: pointer;
-      z-index: 20;
-    }
-
-    .sound-toggle:hover {
-      color: #e8d8a0;
-      opacity: 1;
-    }
-
     .hero {
       height: 100vh;
       position: relative;
@@ -202,6 +185,31 @@
       opacity: 0.85;
     }
 
+    /* 🎬 ARCHIVE */
+    .archive {
+      padding: 120px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .archive-inner {
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .archive video {
+      width: 100%;
+      margin-bottom: 20px;
+      filter: contrast(0.95) brightness(0.95);
+    }
+
+    .archive-text {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      opacity: 0.5;
+    }
+
     .bio {
       padding: 100px 20px;
       text-align: center;
@@ -251,12 +259,6 @@
 
   <div class="overlay"></div>
 
-  <!-- 🔊 AUDIO -->
-  <audio id="ambient" src="ambient.mp3" loop></audio>
-
-  <!-- 🔊 BOTÓN -->
-  <div class="sound-toggle" onclick="toggleSound()">tape hiss off</div>
-
   <section class="hero">
     <div class="content">
       <h1>MADE IN M</h1>
@@ -305,6 +307,16 @@
     </div>
   </section>
 
+  <!-- 🎬 ARCHIVE -->
+  <section class="archive">
+    <div class="archive-inner">
+      <video autoplay muted loop playsinline>
+        <source src="archive.mp4" type="video/mp4">
+      </video>
+      <p class="archive-text">archive</p>
+    </div>
+  </section>
+
   <section class="bio">
     <p>
       Madrid / Berlin<br>
@@ -322,27 +334,6 @@
       <a href="https://www.instagram.com/made.in.m/?hl=de" target="_blank">INSTAGRAM →</a>
     </div>
   </section>
-
-  <!-- 🔊 SCRIPT LIMPIO -->
-  <script>
-    const audio = document.getElementById("ambient");
-    const btn = document.querySelector(".sound-toggle");
-
-    let playing = false;
-
-    function toggleSound() {
-      if (!playing) {
-        audio.volume = 0.1;
-        audio.play();
-        btn.innerText = "tape hiss on";
-        playing = true;
-      } else {
-        audio.pause();
-        btn.innerText = "tape hiss off";
-        playing = false;
-      }
-    }
-  </script>
 
 </body>
 </html>
