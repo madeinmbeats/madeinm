@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Made in M</title>
 
   <style>
@@ -10,6 +11,10 @@
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -38,7 +43,6 @@
       z-index: -1;
     }
 
-    /* HERO */
     .hero {
       height: 100vh;
       position: relative;
@@ -50,6 +54,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
+      width: 90%;
+      max-width: 900px;
     }
 
     h1 {
@@ -58,20 +64,22 @@
       font-weight: 700;
       color: #e8d8a0;
       text-shadow: 0 0 20px rgba(0,0,0,0.8);
+      line-height: 0.95;
     }
 
     p {
       margin-top: 10px;
       font-size: 1rem;
-      opacity: 0.7;
+      opacity: 0.75;
       letter-spacing: 2px;
+      color: #f5f5f5;
     }
 
     .buttons {
       margin-top: 40px;
     }
 
-    a {
+    a.button-link {
       text-decoration: none;
       color: #f5f5f5;
       border: 1px solid rgba(255,255,255,0.6);
@@ -80,77 +88,204 @@
       display: inline-block;
       letter-spacing: 2px;
       font-size: 0.9rem;
-      opacity: 0.8;
+      opacity: 0.85;
       transition: 0.3s;
     }
 
-    a:hover {
+    a.button-link:hover {
       background: rgba(255,255,255,0.1);
       color: #e8d8a0;
       border-color: #e8d8a0;
     }
 
-    /* MUSIC SECTION */
     .music {
-      padding: 100px 20px;
-      text-align: center;
-      background: black;
+      position: relative;
+      z-index: 1;
+      padding: 110px 20px 120px;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(2px);
+    }
+
+    .music-inner {
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .music h2 {
-      font-size: 2rem;
+      font-size: 1.6rem;
       margin-bottom: 40px;
       letter-spacing: 3px;
       color: #e8d8a0;
+      text-align: center;
     }
 
     .tracks {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
     }
 
     .track {
-      background: #111;
-      padding: 20px;
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 28px 22px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s;
     }
 
+    .track:hover {
+      border-color: rgba(232,216,160,0.45);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+    }
+
+    .track-top {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .track-label {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      opacity: 0.55;
+      text-transform: uppercase;
+    }
+
+    .track-title {
+      font-size: 1.8rem;
+      line-height: 1;
+      color: #e8d8a0;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .track-year {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      letter-spacing: 1px;
+    }
+
+    .track-link {
+      margin-top: 24px;
+    }
+
+    .track-link a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      opacity: 0.85;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 3px;
+      transition: 0.3s;
+    }
+
+    .track-link a:hover {
+      color: #e8d8a0;
+      border-color: #e8d8a0;
+    }
+
+    @media (max-width: 900px) {
+      h1 {
+        font-size: 4.2rem;
+      }
+
+      .tracks {
+        grid-template-columns: 1fr;
+      }
+
+      .track {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      h1 {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      a.button-link {
+        margin: 0;
+        width: 220px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- VIDEO -->
   <video autoplay muted loop playsinline>
     <source src="hero.mp4" type="video/mp4">
   </video>
 
   <div class="overlay"></div>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="content">
       <h1>MADE IN M</h1>
       <p>beats</p>
 
       <div class="buttons">
-        <a href="#">LISTEN →</a>
-        <a href="#">DRUMKIT →</a>
+        <a class="button-link" href="#music">LISTEN →</a>
+        <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank" rel="noopener noreferrer">DRUMKIT →</a>
       </div>
     </div>
   </section>
 
-  <!-- MUSIC -->
-  <section class="music">
-    <h2>MUSIC</h2>
+  <section class="music" id="music">
+    <div class="music-inner">
+      <h2>MUSIC</h2>
 
-    <div class="tracks">
-      <div class="track">track 01</div>
-      <div class="track">track 02</div>
-      <div class="track">track 03</div>
+      <div class="tracks">
+        <div class="track">
+          <div class="track-top">
+            <div class="track-label">latest release</div>
+            <div class="track-title">Snowing</div>
+            <div class="track-year">2026</div>
+          </div>
+          <div class="track-link">
+            <a href="#" target="_blank" rel="noopener noreferrer">open →</a>
+          </div>
+        </div>
+
+        <div class="track">
+          <div class="track-top">
+            <div class="track-label">recent</div>
+            <div class="track-title">Guten Morgen</div>
+            <div class="track-year">2025</div>
+          </div>
+          <div class="track-link">
+            <a href="#" target="_blank" rel="noopener noreferrer">open →</a>
+          </div>
+        </div>
+
+        <div class="track">
+          <div class="track-top">
+            <div class="track-label">recent / bandcamp</div>
+            <div class="track-title">bifurca</div>
+            <div class="track-year">2025</div>
+          </div>
+          <div class="track-link">
+            <a href="#" target="_blank" rel="noopener noreferrer">open →</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
