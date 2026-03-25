@@ -118,7 +118,8 @@
     }
 
     .playlists h2,
-    .featured h2 {
+    .featured h2,
+    .links h2 {
       margin-bottom: 40px;
       letter-spacing: 3px;
       color: #e8d8a0;
@@ -150,7 +151,7 @@
     }
 
     .featured {
-      padding: 100px 20px 120px;
+      padding: 100px 20px;
       text-align: center;
       background: black;
       position: relative;
@@ -212,6 +213,43 @@
       color: #e8d8a0;
     }
 
+    .bio {
+      padding: 100px 20px;
+      text-align: center;
+      background: black;
+    }
+
+    .bio p {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      line-height: 1.8;
+    }
+
+    .links {
+      padding: 80px 20px 120px;
+      text-align: center;
+      background: black;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .link-list a {
+      text-decoration: none;
+      color: #f5f5f5;
+      letter-spacing: 2px;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+
+    .link-list a:hover {
+      color: #e8d8a0;
+    }
+
     @media (max-width: 700px) {
       h1 {
         font-size: 3.5rem;
@@ -244,7 +282,7 @@
 
       <div class="buttons">
         <a class="button-link" href="#playlists">LISTEN →</a>
-        <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank" rel="noopener noreferrer">DRUMKIT →</a>
+        <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank">DRUMKIT →</a>
       </div>
     </div>
   </section>
@@ -271,17 +309,35 @@
     <div class="release-grid">
       <a class="release-card" href="https://open.spotify.com/intl-de/album/4eJsXtiVnMUKUMoapDqOUr?si=uWaGAU-tTleBJ7pX8CsvBw" target="_blank">
         <div class="release-cover">
-          <img src="snowing.png" alt="Snowing cover">
+          <img src="snowing.png">
         </div>
         <div class="release-title">Snowing</div>
       </a>
 
       <a class="release-card" href="https://madeinm.bandcamp.com/track/bifurca" target="_blank">
         <div class="release-cover">
-          <img src="bifurca.png" alt="bifurca cover">
+          <img src="bifurca.png">
         </div>
         <div class="release-title">bifurca</div>
       </a>
+    </div>
+  </section>
+
+  <section class="bio">
+    <p>
+      Madrid / Berlin<br>
+      dust / tape / groove
+    </p>
+  </section>
+
+  <section class="links">
+    <h2>LINKS</h2>
+
+    <div class="link-list">
+      <a href="https://open.spotify.com" target="_blank">SPOTIFY →</a>
+      <a href="https://soundcloud.com" target="_blank">SOUNDCLOUD →</a>
+      <a href="https://madeinm.bandcamp.com" target="_blank">BANDCAMP →</a>
+      <a href="#" target="_blank">INSTAGRAM →</a>
     </div>
   </section>
 
