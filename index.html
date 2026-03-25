@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Made in M</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      overflow: hidden;
+      background: black;
+      color: #f5f5f5;
+    }
+
+    /* VIDEO */
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* OVERLAY OSCURO */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: -1;
+    }
+
+    /* TEXTO */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 2px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #f5f5f5;
+      border: 1px solid #f5f5f5;
+      padding: 10px 20px;
+      margin: 0 10px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      background: #f5f5f5;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- VIDEO -->
+  <video autoplay muted loop playsinline>
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+
+  <!-- OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- TEXTO -->
+  <div class="content">
+    <h1>MADE IN M</h1>
+    <p>beats</p>
+    <p>Madrid — Berlin</p>
+
+    <div class="buttons">
+      <a href="#">LISTEN</a>
+      <a href="#">DRUMKIT</a>
+    </div>
+  </div>
+
+</body>
+</html>
