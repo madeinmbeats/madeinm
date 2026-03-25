@@ -64,7 +64,6 @@
       font-weight: 700;
       color: #e8d8a0;
       text-shadow: 0 0 20px rgba(0,0,0,0.8);
-      line-height: 0.95;
     }
 
     p {
@@ -72,14 +71,13 @@
       font-size: 1rem;
       opacity: 0.75;
       letter-spacing: 2px;
-      color: #f5f5f5;
     }
 
     .buttons {
       margin-top: 40px;
     }
 
-    a.button-link {
+    .button-link {
       text-decoration: none;
       color: #f5f5f5;
       border: 1px solid rgba(255,255,255,0.6);
@@ -92,137 +90,88 @@
       transition: 0.3s;
     }
 
-    a.button-link:hover {
+    .button-link:hover {
       background: rgba(255,255,255,0.1);
       color: #e8d8a0;
       border-color: #e8d8a0;
     }
 
-    .music {
-      position: relative;
-      z-index: 1;
-      padding: 110px 20px 120px;
-      background: rgba(0,0,0,0.92);
-      backdrop-filter: blur(2px);
+    /* SPOTIFY */
+    .spotify {
+      padding: 100px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.9);
     }
 
-    .music-inner {
-      max-width: 1000px;
-      margin: 0 auto;
+    .spotify h2 {
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+      color: #e8d8a0;
     }
 
-    .music h2 {
-      font-size: 1.6rem;
+    iframe {
+      border-radius: 12px;
+      width: 100%;
+      max-width: 800px;
+      height: 380px;
+    }
+
+    /* FEATURED */
+    .featured {
+      padding: 100px 20px;
+      text-align: center;
+      background: black;
+    }
+
+    .featured h2 {
       margin-bottom: 40px;
       letter-spacing: 3px;
       color: #e8d8a0;
-      text-align: center;
     }
 
     .tracks {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .track {
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.15);
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 28px 22px;
-      min-height: 180px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       transition: 0.3s;
     }
 
     .track:hover {
-      border-color: rgba(232,216,160,0.45);
-      background: rgba(255,255,255,0.05);
-      transform: translateY(-2px);
+      border-color: #e8d8a0;
+      transform: translateY(-3px);
     }
 
-    .track-top {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .track-label {
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      opacity: 0.55;
-      text-transform: uppercase;
-    }
-
-    .track-title {
-      font-size: 1.8rem;
-      line-height: 1;
+    .track h3 {
       color: #e8d8a0;
-      letter-spacing: 1px;
-      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
     }
 
-    .track-year {
-      font-size: 0.95rem;
-      opacity: 0.7;
-      letter-spacing: 1px;
-    }
-
-    .track-link {
-      margin-top: 24px;
-    }
-
-    .track-link a {
-      text-decoration: none;
+    .track a {
       color: #f5f5f5;
-      font-size: 0.9rem;
+      text-decoration: none;
       letter-spacing: 2px;
-      opacity: 0.85;
+      font-size: 0.9rem;
+      opacity: 0.8;
       border-bottom: 1px solid rgba(255,255,255,0.3);
-      padding-bottom: 3px;
-      transition: 0.3s;
     }
 
-    .track-link a:hover {
+    .track a:hover {
       color: #e8d8a0;
       border-color: #e8d8a0;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
       h1 {
-        font-size: 4.2rem;
-      }
-
-      .tracks {
-        grid-template-columns: 1fr;
-      }
-
-      .track {
-        min-height: auto;
-      }
-    }
-
-    @media (max-width: 560px) {
-      h1 {
-        font-size: 3.2rem;
-        letter-spacing: 2px;
-      }
-
-      p {
-        font-size: 0.9rem;
-      }
-
-      .buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-      }
-
-      a.button-link {
-        margin: 0;
-        width: 220px;
+        font-size: 3.5rem;
       }
     }
   </style>
@@ -236,55 +185,42 @@
 
   <div class="overlay"></div>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="content">
       <h1>MADE IN M</h1>
       <p>beats</p>
 
       <div class="buttons">
-        <a class="button-link" href="#music">LISTEN →</a>
-        <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank" rel="noopener noreferrer">DRUMKIT →</a>
+        <a class="button-link" href="#spotify">LISTEN →</a>
+        <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank">DRUMKIT →</a>
       </div>
     </div>
   </section>
 
-  <section class="music" id="music">
-    <div class="music-inner">
-      <h2>MUSIC</h2>
+  <!-- SPOTIFY -->
+  <section class="spotify" id="spotify">
+    <h2>THIS IS MADE IN M</h2>
 
-      <div class="tracks">
-        <div class="track">
-          <div class="track-top">
-            <div class="track-label">latest release</div>
-            <div class="track-title">Snowing</div>
-            <div class="track-year">2026</div>
-          </div>
-          <div class="track-link">
-            <a href="#" target="_blank" rel="noopener noreferrer">open →</a>
-          </div>
-        </div>
+    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO3d1tc3?utm_source=generator"
+      frameBorder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+  </section>
 
-        <div class="track">
-          <div class="track-top">
-            <div class="track-label">recent</div>
-            <div class="track-title">Guten Morgen</div>
-            <div class="track-year">2025</div>
-          </div>
-          <div class="track-link">
-            <a href="#" target="_blank" rel="noopener noreferrer">open →</a>
-          </div>
-        </div>
+  <!-- FEATURED -->
+  <section class="featured">
+    <h2>FEATURED</h2>
 
-        <div class="track">
-          <div class="track-top">
-            <div class="track-label">recent / bandcamp</div>
-            <div class="track-title">bifurca</div>
-            <div class="track-year">2025</div>
-          </div>
-          <div class="track-link">
-            <a href="#" target="_blank" rel="noopener noreferrer">open →</a>
-          </div>
-        </div>
+    <div class="tracks">
+      <div class="track">
+        <h3>Snowing</h3>
+        <a href="https://open.spotify.com/intl-de/album/4eJsXtiVnMUKUMoapDqOUr?si=uWaGAU-tTleBJ7pX8CsvBw" target="_blank">open →</a>
+      </div>
+
+      <div class="track">
+        <h3>bifurca</h3>
+        <a href="https://madeinm.bandcamp.com/track/bifurca" target="_blank">open →</a>
       </div>
     </div>
   </section>
