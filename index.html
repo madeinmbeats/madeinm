@@ -54,8 +54,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      width: 90%;
-      max-width: 900px;
     }
 
     h1 {
@@ -96,27 +94,44 @@
       border-color: #e8d8a0;
     }
 
-    /* SPOTIFY */
-    .spotify {
+    /* PLAYLISTS (fake player) */
+    .playlists {
       padding: 100px 20px;
       text-align: center;
       background: rgba(0,0,0,0.9);
     }
 
-    .spotify h2 {
-      margin-bottom: 30px;
+    .playlists h2 {
+      margin-bottom: 40px;
       letter-spacing: 3px;
       color: #e8d8a0;
     }
 
-    iframe {
-      border-radius: 12px;
-      width: 100%;
-      max-width: 800px;
-      height: 380px;
+    .playlist {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.03);
+      transition: 0.3s;
     }
 
-    /* FEATURED */
+    .playlist:hover {
+      border-color: #e8d8a0;
+      transform: translateY(-2px);
+    }
+
+    .playlist a {
+      text-decoration: none;
+      color: #f5f5f5;
+      letter-spacing: 2px;
+    }
+
+    .playlist a:hover {
+      color: #e8d8a0;
+    }
+
+    /* RELEASES */
     .featured {
       padding: 100px 20px;
       text-align: center;
@@ -192,25 +207,32 @@
       <p>beats</p>
 
       <div class="buttons">
-        <a class="button-link" href="#spotify">LISTEN →</a>
+        <a class="button-link" href="#playlists">LISTEN →</a>
         <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank">DRUMKIT →</a>
       </div>
     </div>
   </section>
 
-  <!-- SPOTIFY -->
-  <section class="spotify" id="spotify">
-    <h2>THIS IS MADE IN M</h2>
+  <!-- PLAYLISTS -->
+  <section class="playlists" id="playlists">
+    <h2>PLAYLISTS</h2>
 
-    <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO3d1tc3?utm_source=generator"
-      frameBorder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-    </iframe>
+    <div class="playlist">
+      <a href="https://open.spotify.com/playlist/37i9dQZF1DZ06evO3d1tc3" target="_blank">
+        THIS IS MADE IN M →
+      </a>
+    </div>
+
+    <div class="playlist">
+      <a href="#" target="_blank">
+        BEATS CHINGONES →
+      </a>
+    </div>
   </section>
 
-  <!-- FEATURED -->
+  <!-- RELEASES -->
   <section class="featured">
-    <h2>FEATURED</h2>
+    <h2>RECENT RELEASES</h2>
 
     <div class="tracks">
       <div class="track">
