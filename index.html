@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <title>Made in M</title>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Playfair Display', serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
@@ -21,7 +18,6 @@
       color: #f5f5f5;
     }
 
-    /* VIDEO */
     video {
       position: fixed;
       top: 50%;
@@ -33,7 +29,6 @@
       z-index: -2;
     }
 
-    /* OVERLAY */
     .overlay {
       position: fixed;
       top: 0;
@@ -44,7 +39,6 @@
       z-index: -1;
     }
 
-    /* CONTENIDO */
     .content {
       position: absolute;
       top: 50%;
@@ -54,30 +48,34 @@
     }
 
     h1 {
-      font-size: 4.5rem;
-      letter-spacing: 1px;
+      font-size: 5rem;
+      letter-spacing: 4px;
       font-weight: 700;
+      color: #e8d8a0; /* amarillo desgastado */
       text-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
 
     p {
       margin-top: 10px;
-      font-size: 1.2rem;
-      opacity: 0.8;
+      font-size: 1rem;
+      opacity: 0.7;
+      letter-spacing: 2px;
+      color: #f5f5f5;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
     a {
       text-decoration: none;
       color: #f5f5f5;
       border: 1px solid #f5f5f5;
-      padding: 10px 20px;
+      padding: 10px 25px;
       margin: 0 10px;
       display: inline-block;
       transition: 0.3s;
+      letter-spacing: 1px;
     }
 
     a:hover {
@@ -89,15 +87,12 @@
 
 <body>
 
-  <!-- VIDEO -->
   <video autoplay muted loop playsinline>
     <source src="hero.mp4" type="video/mp4">
   </video>
 
-  <!-- OVERLAY -->
   <div class="overlay"></div>
 
-  <!-- TEXTO -->
   <div class="content">
     <h1>MADE IN M</h1>
     <p>beats</p>
