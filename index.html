@@ -275,6 +275,9 @@
 
   <div class="overlay"></div>
 
+  <!-- 🔊 AUDIO -->
+  <audio id="clickSound" src="click.mp3"></audio>
+
   <section class="hero">
     <div class="content">
       <h1>MADE IN M</h1>
@@ -334,12 +337,28 @@
     <h2>LINKS</h2>
 
     <div class="link-list">
-  <a href="https://open.spotify.com/intl-de/artist/5schXx0Ys4N52iU7On2j4c" target="_blank">SPOTIFY →</a>
-  <a href="https://soundcloud.com/madeinm" target="_blank">SOUNDCLOUD →</a>
-  <a href="https://madeinm.bandcamp.com/" target="_blank">BANDCAMP →</a>
-  <a href="https://www.instagram.com/made.in.m/?hl=de" target="_blank">INSTAGRAM →</a>
-</div>
+      <a href="https://open.spotify.com/intl-de/artist/5schXx0Ys4N52iU7On2j4c" target="_blank">SPOTIFY →</a>
+      <a href="https://soundcloud.com/madeinm" target="_blank">SOUNDCLOUD →</a>
+      <a href="https://madeinm.bandcamp.com/" target="_blank">BANDCAMP →</a>
+      <a href="https://www.instagram.com/made.in.m/?hl=de" target="_blank">INSTAGRAM →</a>
+    </div>
   </section>
+
+  <!-- 🔊 SCRIPT -->
+  <script>
+    const sound = document.getElementById("clickSound");
+
+    function playClick() {
+      sound.currentTime = 0;
+      sound.play();
+    }
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+      link.addEventListener("click", playClick);
+    });
+  </script>
 
 </body>
 </html>
