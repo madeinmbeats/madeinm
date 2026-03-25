@@ -40,7 +40,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.09;
+      opacity: 0.07;
       pointer-events: none;
       z-index: 10;
       mix-blend-mode: screen;
@@ -67,6 +67,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
+      width: 90%;
+      max-width: 900px;
     }
 
     h1 {
@@ -111,12 +113,16 @@
       padding: 100px 20px;
       text-align: center;
       background: rgba(0,0,0,0.9);
+      position: relative;
+      z-index: 1;
     }
 
-    .playlists h2 {
+    .playlists h2,
+    .featured h2 {
       margin-bottom: 40px;
       letter-spacing: 3px;
       color: #e8d8a0;
+      font-size: 1rem;
     }
 
     .playlist {
@@ -144,60 +150,76 @@
     }
 
     .featured {
-      padding: 100px 20px;
+      padding: 100px 20px 120px;
       text-align: center;
       background: black;
+      position: relative;
+      z-index: 1;
     }
 
-    .featured h2 {
-      margin-bottom: 40px;
-      letter-spacing: 3px;
-      color: #e8d8a0;
-    }
-
-    .tracks {
+    .release-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(2, minmax(240px, 320px));
+      justify-content: center;
+      gap: 30px;
       max-width: 900px;
       margin: 0 auto;
     }
 
-    .track {
-      padding: 30px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.03);
+    .release-card {
+      text-decoration: none;
+      color: #f5f5f5;
+      display: block;
       transition: 0.3s;
     }
 
-    .track:hover {
-      border-color: #e8d8a0;
-      transform: translateY(-3px);
+    .release-card:hover {
+      transform: translateY(-4px);
     }
 
-    .track h3 {
-      color: #e8d8a0;
-      font-size: 1.6rem;
-      margin-bottom: 10px;
+    .release-cover {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 14px;
     }
 
-    .track a {
-      color: #f5f5f5;
-      text-decoration: none;
+    .release-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 0.4s;
+    }
+
+    .release-card:hover .release-cover {
+      border-color: rgba(232,216,160,0.5);
+    }
+
+    .release-card:hover .release-cover img {
+      transform: scale(1.02);
+    }
+
+    .release-title {
+      font-size: 0.95rem;
       letter-spacing: 2px;
-      font-size: 0.9rem;
-      opacity: 0.8;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
+      opacity: 0.85;
     }
 
-    .track a:hover {
+    .release-card:hover .release-title {
       color: #e8d8a0;
-      border-color: #e8d8a0;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       h1 {
         font-size: 3.5rem;
+      }
+
+      .release-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
       }
     }
   </style>
@@ -231,32 +253,35 @@
     <h2>PLAYLISTS</h2>
 
     <div class="playlist">
-      <a href="https://open.spotify.com/playlist/37i9dQZF1DZ06evO3d1tc3" target="_blank" rel="noopener noreferrer">
+      <a href="https://open.spotify.com/playlist/37i9dQZF1DZ06evO3d1tc3" target="_blank">
         THIS IS MADE IN M →
       </a>
     </div>
 
-   <div class="playlist">
-  <a href="https://open.spotify.com/playlist/2DOrjASr7kmWTumw2jOX0G?si=xKzdWitFSruMYBVJv9d1tg" target="_blank" rel="noopener noreferrer">
-    BEATS CHINGONES →
-  </a>
-</div>
+    <div class="playlist">
+      <a href="https://open.spotify.com/playlist/2DOrjASr7kmWTumw2jOX0G?si=xKzdWitFSruMYBVJv9d1tg" target="_blank">
+        BEATS CHINGONES →
+      </a>
     </div>
   </section>
 
   <section class="featured">
     <h2>RECENT RELEASES</h2>
 
-    <div class="tracks">
-      <div class="track">
-        <h3>Snowing</h3>
-        <a href="https://open.spotify.com/intl-de/album/4eJsXtiVnMUKUMoapDqOUr?si=uWaGAU-tTleBJ7pX8CsvBw" target="_blank" rel="noopener noreferrer">open →</a>
-      </div>
+    <div class="release-grid">
+      <a class="release-card" href="https://open.spotify.com/intl-de/album/4eJsXtiVnMUKUMoapDqOUr?si=uWaGAU-tTleBJ7pX8CsvBw" target="_blank">
+        <div class="release-cover">
+          <img src="snowing.png" alt="Snowing cover">
+        </div>
+        <div class="release-title">Snowing</div>
+      </a>
 
-      <div class="track">
-        <h3>bifurca</h3>
-        <a href="https://madeinm.bandcamp.com/track/bifurca" target="_blank" rel="noopener noreferrer">open →</a>
-      </div>
+      <a class="release-card" href="https://madeinm.bandcamp.com/track/bifurca" target="_blank">
+        <div class="release-cover">
+          <img src="bifurca.png" alt="bifurca cover">
+        </div>
+        <div class="release-title">bifurca</div>
+      </a>
     </div>
   </section>
 
