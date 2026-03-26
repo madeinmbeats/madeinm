@@ -228,11 +228,18 @@
       opacity: 0.48;
     }
 
+    /* composición editorial 3 arriba + 4 abajo */
     .archive-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(220px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(3, 220px);
+      justify-content: center;
+      column-gap: 28px;
+      row-gap: 30px;
       margin-bottom: 70px;
+    }
+
+    .archive-grid .archive-card:nth-child(n+4) {
+      transform: translateX(124px);
     }
 
     .archive-card {
@@ -245,11 +252,28 @@
 
     .archive-card:hover {
       opacity: 1;
+    }
+
+    .archive-card:hover .archive-cover img {
+      transform: scale(1.04);
+      opacity: 0.92;
+    }
+
+    .archive-card:hover:not(.archive-card-static) {
       transform: translateY(-2px);
     }
 
     .archive-card-static {
       cursor: default;
+    }
+
+    .archive-card-static:hover {
+      transform: none;
+    }
+
+    .archive-card-static:hover .archive-cover img {
+      transform: scale(1.03);
+      opacity: 0.92;
     }
 
     .archive-cover {
@@ -268,11 +292,6 @@
       object-fit: cover;
       display: block;
       transition: transform 0.45s ease, opacity 0.45s ease;
-    }
-
-    .archive-card:hover .archive-cover img {
-      transform: scale(1.04);
-      opacity: 0.92;
     }
 
     .archive-status {
@@ -306,21 +325,21 @@
     }
 
     .archive-name {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       opacity: 0.88;
     }
 
     .archive-year {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 2px;
       opacity: 0.4;
       white-space: nowrap;
     }
 
     .archive-format {
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       opacity: 0.36;
@@ -354,9 +373,14 @@
     }
 
     .archive-grid.fanso-grid {
-      grid-template-columns: repeat(2, minmax(220px, 280px));
+      grid-template-columns: repeat(2, 220px);
       justify-content: center;
       margin-bottom: 0;
+    }
+
+    .archive-grid.fanso-grid .archive-card:nth-child(n+4),
+    .archive-grid.fanso-grid .archive-card:nth-child(n+3) {
+      transform: none;
     }
 
     .bio {
@@ -391,7 +415,11 @@
 
     @media (max-width: 900px) {
       .archive-grid {
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        grid-template-columns: repeat(2, 220px);
+      }
+
+      .archive-grid .archive-card:nth-child(n+4) {
+        transform: none;
       }
     }
 
@@ -412,6 +440,11 @@
       .archive-grid.fanso-grid {
         grid-template-columns: 1fr;
         gap: 22px;
+      }
+
+      .archive-grid .archive-card:nth-child(n+4),
+      .archive-grid.fanso-grid .archive-card:nth-child(n+3) {
+        transform: none;
       }
 
       .archive-meta {
