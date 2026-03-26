@@ -457,14 +457,6 @@
       opacity: 0.92;
     }
 
-    .video-caption {
-      margin-top: 10px;
-      font-size: 0.68rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.42;
-    }
-
     .video-entry.rotate-left {
       transform: rotate(-1.5deg);
     }
@@ -484,6 +476,10 @@
 
     .video-entry.shift-up {
       margin-top: -20px;
+    }
+
+    .video-entry.span-center {
+      grid-column: 2;
     }
 
     .bio {
@@ -564,6 +560,10 @@
       .video-entry.rotate-right:hover {
         transform: translateY(-3px);
       }
+
+      .video-entry.span-center {
+        grid-column: auto;
+      }
     }
 
     @media (max-width: 700px) {
@@ -616,10 +616,6 @@
 
       .video-entry.horizontal .video-frame {
         aspect-ratio: 3 / 4;
-      }
-
-      .video-caption {
-        font-size: 0.62rem;
       }
     }
   </style>
@@ -837,7 +833,6 @@
               <source src="album01.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-caption">01</div>
         </a>
 
         <a class="video-entry shift-down" href="https://www.youtube.com/watch?v=3ze-W_js1NE&list=RD3ze-W_js1NE&start_radio=1" target="_blank">
@@ -846,7 +841,6 @@
               <source src="album02.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-caption">02</div>
         </a>
 
         <a class="video-entry rotate-right" href="https://www.youtube.com/watch?v=DGIMU3S2GfE&list=RDDGIMU3S2GfE&start_radio=1&t=1389s" target="_blank">
@@ -855,7 +849,6 @@
               <source src="album03.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-caption">03</div>
         </a>
 
         <a class="video-entry shift-up" href="https://www.youtube.com/watch?v=HpiWTDOin6Y&list=RDHpiWTDOin6Y&start_radio=1" target="_blank">
@@ -864,7 +857,14 @@
               <source src="album04.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-caption">04</div>
+        </a>
+
+        <a class="video-entry rotate-left span-center" href="https://www.youtube.com/watch?v=2qWaL_IBh0Y&list=RD2qWaL_IBh0Y&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline>
+              <source src="album07.mp4" type="video/mp4">
+            </video>
+          </div>
         </a>
 
         <a class="video-entry horizontal" href="https://www.youtube.com/watch?v=Se9P4Rdx-n8&list=RDSe9P4Rdx-n8&start_radio=1&t=1497s" target="_blank">
@@ -873,7 +873,6 @@
               <source src="album05.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-caption">05</div>
         </a>
 
         <a class="video-entry horizontal" href="https://www.youtube.com/watch?v=rEjIRpISPEM&list=RDrEjIRpISPEM&start_radio=1" target="_blank">
@@ -882,16 +881,6 @@
               <source src="album06.mp4" type="video/mp4">
             </video>
           </div>
-          <div class="video-caption">06</div>
-        </a>
-
-        <a class="video-entry rotate-left shift-up" href="https://www.youtube.com/watch?v=2qWaL_IBh0Y&list=RD2qWaL_IBh0Y&start_radio=1" target="_blank">
-          <div class="video-frame">
-            <video autoplay muted loop playsinline>
-              <source src="album07.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div class="video-caption">07</div>
         </a>
 
       </div>
