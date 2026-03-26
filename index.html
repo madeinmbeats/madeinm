@@ -179,6 +179,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .release-title {
@@ -187,7 +188,7 @@
       opacity: 0.85;
     }
 
-    /* 🎬 ARCHIVE */
+    /* RECORDS */
     .archive {
       padding: 120px 20px;
       background:
@@ -247,6 +248,10 @@
       transform: translateY(-2px);
     }
 
+    .archive-card-static {
+      cursor: default;
+    }
+
     .archive-cover {
       position: relative;
       width: 100%;
@@ -268,6 +273,28 @@
     .archive-card:hover .archive-cover img {
       transform: scale(1.04);
       opacity: 0.92;
+    }
+
+    .archive-status {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      padding: 5px 8px;
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(0,0,0,0.55);
+      color: #f5f5f5;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    .archive-card-static:hover .archive-status {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .archive-meta {
@@ -392,6 +419,17 @@
         align-items: flex-start;
         gap: 6px;
       }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .button-link {
+        margin: 0;
+      }
     }
   </style>
 </head>
@@ -415,6 +453,7 @@
 
       <div class="buttons">
         <a class="button-link" href="#playlists">LISTEN →</a>
+        <a class="button-link" href="#records">RECORDS →</a>
         <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank">DRUMKIT →</a>
       </div>
     </div>
@@ -456,13 +495,13 @@
     </div>
   </section>
 
-  <!-- 🎬 ARCHIVE -->
-  <section class="archive" id="archive">
+  <!-- RECORDS -->
+  <section class="archive" id="records">
     <div class="archive-inner">
 
       <div class="archive-heading">
         <div class="archive-kicker">physical works / selected editions</div>
-        <h2 class="archive-title">ARCHIVE</h2>
+        <h2 class="archive-title">RECORDS</h2>
         <p class="archive-note">
           selected physical releases and pressed works.<br>
           an archive, not a catalogue.
@@ -470,82 +509,89 @@
       </div>
 
       <div class="archive-grid">
-        <a class="archive-card" href="#" target="_blank">
-          <div class="archive-cover">
-            <img src="archive-01.png" alt="Archive release 01">
-          </div>
-          <div class="archive-meta">
-            <div class="archive-name">Release 01</div>
-            <div class="archive-year">2026</div>
-          </div>
-          <div class="archive-format">12" vinyl</div>
-        </a>
 
-        <a class="archive-card" href="#" target="_blank">
+        <a class="archive-card" href="https://sichtexot.com/products/sole-spirito-special" target="_blank">
           <div class="archive-cover">
-            <img src="archive-02.png" alt="Archive release 02">
+            <img src="archive-01.png" alt="Sole Spirito cover">
           </div>
           <div class="archive-meta">
-            <div class="archive-name">Release 02</div>
-            <div class="archive-year">2025</div>
-          </div>
-          <div class="archive-format">12" vinyl</div>
-        </a>
-
-        <a class="archive-card" href="#" target="_blank">
-          <div class="archive-cover">
-            <img src="archive-03.png" alt="Archive release 03">
-          </div>
-          <div class="archive-meta">
-            <div class="archive-name">Release 03</div>
-            <div class="archive-year">2025</div>
-          </div>
-          <div class="archive-format">7" vinyl</div>
-        </a>
-
-        <a class="archive-card" href="#" target="_blank">
-          <div class="archive-cover">
-            <img src="archive-04.png" alt="Archive release 04">
-          </div>
-          <div class="archive-meta">
-            <div class="archive-name">Release 04</div>
+            <div class="archive-name">Sole Spirito</div>
             <div class="archive-year">2024</div>
           </div>
-          <div class="archive-format">12" vinyl</div>
+          <div class="archive-format">vinyl</div>
         </a>
 
-        <a class="archive-card" href="#" target="_blank">
+        <a class="archive-card" href="https://ear-sight.bandcamp.com/album/flux" target="_blank">
           <div class="archive-cover">
-            <img src="archive-05.png" alt="Archive release 05">
+            <img src="archive-02.png" alt="Flux cover">
           </div>
           <div class="archive-meta">
-            <div class="archive-name">Release 05</div>
-            <div class="archive-year">2023</div>
+            <div class="archive-name">Flux</div>
+            <div class="archive-year">2024</div>
           </div>
-          <div class="archive-format">lathe cut</div>
+          <div class="archive-format">vinyl</div>
         </a>
 
-        <a class="archive-card" href="#" target="_blank">
+        <div class="archive-card archive-card-static">
           <div class="archive-cover">
-            <img src="archive-06.png" alt="Archive release 06">
+            <img src="archive-03.png" alt="Garbeo cover">
+            <span class="archive-status">Sold out</span>
           </div>
           <div class="archive-meta">
-            <div class="archive-name">Release 06</div>
-            <div class="archive-year">2022</div>
+            <div class="archive-name">Garbeo</div>
+            <div class="archive-year">2020</div>
           </div>
-          <div class="archive-format">12" vinyl</div>
-        </a>
+          <div class="archive-format">vinyl</div>
+        </div>
 
-        <a class="archive-card" href="#" target="_blank">
+        <div class="archive-card archive-card-static">
           <div class="archive-cover">
-            <img src="archive-07.png" alt="Archive release 07">
+            <img src="archive-04.png" alt="Fungus cover">
+            <span class="archive-status">Sold out</span>
           </div>
           <div class="archive-meta">
-            <div class="archive-name">Release 07</div>
-            <div class="archive-year">2021</div>
+            <div class="archive-name">Fungus</div>
+            <div class="archive-year">2018</div>
           </div>
-          <div class="archive-format">special edition</div>
-        </a>
+          <div class="archive-format">vinyl</div>
+        </div>
+
+        <div class="archive-card archive-card-static">
+          <div class="archive-cover">
+            <img src="archive-05.png" alt="Nest cover">
+            <span class="archive-status">Sold out</span>
+          </div>
+          <div class="archive-meta">
+            <div class="archive-name">Nest</div>
+            <div class="archive-year">2016</div>
+          </div>
+          <div class="archive-format">vinyl</div>
+        </div>
+
+        <div class="archive-card archive-card-static">
+          <div class="archive-cover">
+            <img src="archive-07.png" alt="Dalsy cover">
+            <span class="archive-status">Sold out</span>
+          </div>
+          <div class="archive-meta">
+            <div class="archive-name">Dalsy</div>
+            <div class="archive-year">2016</div>
+          </div>
+          <div class="archive-format">vinyl</div>
+        </div>
+
+        <div class="archive-card archive-card-static">
+          <div class="archive-cover">
+            <img src="archive-06.png" alt="Sumergido cover">
+            <span class="archive-status">Sold out</span>
+          </div>
+          <div class="archive-meta">
+            <div class="archive-name">Sumergido</div>
+            <div class="archive-year">2015</div>
+          </div>
+          <div class="archive-format">vinyl</div>
+        </div>
+
       </div>
 
       <div class="archive-subsection">
@@ -555,27 +601,30 @@
         </p>
 
         <div class="archive-grid fanso-grid">
-          <a class="archive-card" href="#" target="_blank">
+
+          <a class="archive-card" href="https://guayabarecords.com/producto/fanso-musica-para-lagartos-vinilo/" target="_blank">
             <div class="archive-cover">
-              <img src="fanso-01.png" alt="Fanso release 01">
+              <img src="fanso-01.png" alt="Música para Lagartos cover">
             </div>
             <div class="archive-meta">
-              <div class="archive-name">FANSO 01</div>
-              <div class="archive-year">2022</div>
+              <div class="archive-name">Música para Lagartos</div>
+              <div class="archive-year">2018</div>
             </div>
             <div class="archive-format">collective work</div>
           </a>
 
-          <a class="archive-card" href="#" target="_blank">
+          <div class="archive-card archive-card-static">
             <div class="archive-cover">
-              <img src="fanso-02.png" alt="Fanso release 02">
+              <img src="fanso-02.png" alt="Acid House cover">
+              <span class="archive-status">Sold out</span>
             </div>
             <div class="archive-meta">
-              <div class="archive-name">FANSO 02</div>
-              <div class="archive-year">2021</div>
+              <div class="archive-name">Acid House</div>
+              <div class="archive-year">2015</div>
             </div>
             <div class="archive-format">collective work</div>
-          </a>
+          </div>
+
         </div>
       </div>
 
