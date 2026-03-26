@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Made in M</title>
 
   <style>
@@ -77,7 +76,6 @@
       letter-spacing: 4px;
       font-weight: 700;
       color: #e8d8a0;
-      text-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
 
     p {
@@ -124,7 +122,6 @@
       letter-spacing: 3px;
       color: #e8d8a0;
       font-size: 1rem;
-      text-align: center;
     }
 
     .playlist {
@@ -133,12 +130,6 @@
       padding: 20px;
       border: 1px solid rgba(255,255,255,0.15);
       background: rgba(255,255,255,0.03);
-      transition: 0.3s;
-    }
-
-    .playlist:hover {
-      border-color: #e8d8a0;
-      transform: translateY(-2px);
     }
 
     .playlist a {
@@ -150,7 +141,6 @@
     .featured {
       padding: 100px 20px;
       text-align: center;
-      background: black;
     }
 
     .release-grid {
@@ -158,510 +148,234 @@
       grid-template-columns: repeat(2, minmax(240px, 320px));
       justify-content: center;
       gap: 30px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .release-card {
-      text-decoration: none;
-      color: #f5f5f5;
-      display: block;
     }
 
     .release-cover {
-      width: 100%;
       aspect-ratio: 1 / 1;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.14);
-      margin-bottom: 14px;
     }
 
     .release-cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     .release-title {
-      font-size: 0.95rem;
+      margin-top: 10px;
       letter-spacing: 2px;
-      opacity: 0.85;
     }
 
     /* RECORDS */
     .archive {
       padding: 120px 20px;
-      background:
-        linear-gradient(to bottom, rgba(0,0,0,0.92), rgba(6,6,6,0.98)),
-        rgba(0,0,0,0.94);
     }
 
     .archive-inner {
-      max-width: 1180px;
+      max-width: 1000px;
       margin: 0 auto;
-      width: 100%;
     }
 
     .archive-heading {
       text-align: center;
-      margin-bottom: 55px;
+      margin-bottom: 60px;
     }
 
     .archive-kicker {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: 0.42;
-      margin-bottom: 14px;
-    }
-
-    .archive-title {
-      margin-bottom: 10px;
+      opacity: 0.4;
     }
 
     .archive-note {
-      max-width: 520px;
-      margin: 0 auto;
-      font-size: 0.78rem;
-      line-height: 1.8;
-      letter-spacing: 2px;
-      opacity: 0.48;
-    }
-
-    .records-layout {
-      max-width: 980px;
-      margin: 0 auto 70px;
+      font-size: 0.8rem;
+      opacity: 0.5;
     }
 
     .records-row {
       display: flex;
       justify-content: center;
-      gap: 28px;
-      margin-bottom: 28px;
-    }
-
-    .records-row:last-child {
-      margin-bottom: 0;
+      gap: 30px;
+      margin-bottom: 30px;
     }
 
     .archive-card {
-      width: 220px;
+      width: 200px;
       text-decoration: none;
-      color: #f5f5f5;
-      display: block;
-      opacity: 0.96;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .archive-card:hover {
-      opacity: 1;
-      transform: translateY(-2px);
-    }
-
-    .archive-card-static {
-      cursor: default;
-    }
-
-    .archive-card-static:hover {
-      transform: none;
+      color: white;
     }
 
     .archive-cover {
-      position: relative;
-      width: 100%;
       aspect-ratio: 1 / 1;
       overflow: hidden;
-      background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      position: relative;
     }
 
     .archive-cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: transform 0.45s ease, opacity 0.45s ease;
-    }
-
-    .archive-card:hover .archive-cover img {
-      transform: scale(1.04);
-      opacity: 0.92;
-    }
-
-    .archive-card-static:hover .archive-cover img {
-      transform: scale(1.03);
-      opacity: 0.92;
-    }
-
-    .archive-status {
-      position: absolute;
-      bottom: 12px;
-      left: 12px;
-      padding: 5px 8px;
-      font-size: 0.62rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.28);
-      background: rgba(0,0,0,0.55);
-      color: #f5f5f5;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      pointer-events: none;
-    }
-
-    .archive-card-static:hover .archive-status {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .archive-meta {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 14px;
-      margin-bottom: 4px;
-    }
-
-    .archive-name {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.88;
-    }
-
-    .archive-year {
-      font-size: 0.68rem;
-      letter-spacing: 2px;
-      opacity: 0.4;
-      white-space: nowrap;
     }
 
     .archive-format {
-      font-size: 0.66rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      opacity: 0.36;
+      font-size: 0.65rem;
+      opacity: 0.5;
+    }
+
+    .archive-status {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 0.6rem;
+      border: 1px solid white;
+      padding: 2px 6px;
+      opacity: 0;
+    }
+
+    .archive-card-static:hover .archive-status {
+      opacity: 1;
     }
 
     .archive-subsection {
-      max-width: 760px;
-      margin: 0 auto;
-      padding-top: 26px;
+      text-align: center;
+      margin-top: 60px;
       border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 40px;
     }
 
     .archive-subtitle {
-      text-align: center;
-      margin-bottom: 28px;
-      font-size: 0.74rem;
+      margin-bottom: 30px;
       letter-spacing: 3px;
-      text-transform: uppercase;
       color: #e8d8a0;
-      opacity: 0.78;
     }
 
     .fanso-row {
       display: flex;
       justify-content: center;
-      gap: 28px;
+      gap: 30px;
     }
 
-    .bio {
+    .links {
       padding: 100px 20px;
       text-align: center;
     }
 
-    .bio p {
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      opacity: 0.7;
-      line-height: 1.8;
-    }
-
-    .links {
-      padding: 80px 20px 120px;
-      text-align: center;
-    }
-
-    .link-list {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
     .link-list a {
+      display: block;
+      margin: 10px 0;
+      color: white;
       text-decoration: none;
-      color: #f5f5f5;
       letter-spacing: 2px;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 1000px) {
-      .records-row {
-        flex-wrap: wrap;
-      }
-    }
-
-    @media (max-width: 700px) {
-      h1 {
-        font-size: 3.5rem;
-      }
-
-      .release-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .archive {
-        padding: 95px 18px;
-      }
-
-      .records-row,
-      .fanso-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 22px;
-      }
-
-      .archive-card {
-        width: min(100%, 320px);
-      }
-
-      .archive-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
-
-      .buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-      }
-
-      .button-link {
-        margin: 0;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="hero.mp4" type="video/mp4">
-  </video>
+<section class="hero">
+  <div class="content">
+    <h1>MADE IN M</h1>
+    <p>beats</p>
 
-  <video class="grain" autoplay muted loop playsinline>
-    <source src="grain.mp4" type="video/mp4">
-  </video>
-
-  <div class="overlay"></div>
-
-  <section class="hero">
-    <div class="content">
-      <h1>MADE IN M</h1>
-      <p>beats</p>
-
-      <div class="buttons">
-        <a class="button-link" href="#playlists">LISTEN →</a>
-        <a class="button-link" href="#records">RECORDS →</a>
-        <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank">DRUMKIT →</a>
-      </div>
+    <div class="buttons">
+      <a class="button-link" href="#playlists">LISTEN →</a>
+      <a class="button-link" href="#records">RECORDS →</a>
+      <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank">DRUMKIT →</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="playlists" id="playlists">
-    <h2>PLAYLISTS</h2>
+<section class="playlists" id="playlists">
+  <h2>PLAYLISTS</h2>
 
-    <div class="playlist">
-      <a href="https://open.spotify.com/playlist/37i9dQZF1DZ06evO3d1tc3" target="_blank">
-        THIS IS MADE IN M →
-      </a>
+  <div class="playlist">
+    <a href="#">THIS IS MADE IN M →</a>
+  </div>
+</section>
+
+<section class="featured">
+  <h2>RECENT RELEASES</h2>
+
+  <div class="release-grid">
+    <div>
+      <div class="release-cover"><img src="snowing.png"></div>
+      <div class="release-title">Snowing</div>
     </div>
 
-    <div class="playlist">
-      <a href="https://open.spotify.com/playlist/2DOrjASr7kmWTumw2jOX0G?si=xKzdWitFSruMYBVJv9d1tg" target="_blank">
-        BEATS CHINGONES →
-      </a>
+    <div>
+      <div class="release-cover"><img src="bifurca.png"></div>
+      <div class="release-title">bifurca</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="featured">
-    <h2>RECENT RELEASES</h2>
+<section class="archive" id="records">
+  <div class="archive-inner">
 
-    <div class="release-grid">
-      <a class="release-card" href="https://open.spotify.com/intl-de/album/4eJsXtiVnMUKUMoapDqOUr?si=uWaGAU-tTleBJ7pX8CsvBw" target="_blank">
-        <div class="release-cover">
-          <img src="snowing.png" alt="Snowing cover">
-        </div>
-        <div class="release-title">Snowing</div>
-      </a>
-
-      <a class="release-card" href="https://madeinm.bandcamp.com/track/bifurca" target="_blank">
-        <div class="release-cover">
-          <img src="bifurca.png" alt="Bifurca cover">
-        </div>
-        <div class="release-title">bifurca</div>
-      </a>
+    <div class="archive-heading">
+      <div class="archive-kicker">PHYSICAL WORKS</div>
+      <h2 class="archive-title">RECORDS</h2>
+      <p class="archive-note">an archive, not a catalogue</p>
     </div>
-  </section>
 
-  <!-- RECORDS -->
-  <section class="archive" id="records">
-    <div class="archive-inner">
+    <div class="records-row">
+      <div class="archive-card"><img src="archive-01.png"></div>
+      <div class="archive-card"><img src="archive-02.png"></div>
+      <div class="archive-card"><img src="archive-03.png"></div>
+    </div>
 
-      <div class="archive-heading">
-        <div class="archive-kicker">physical works / selected editions</div>
-        <h2 class="archive-title">RECORDS</h2>
-        <p class="archive-note">
-          selected physical releases and pressed works.<br>
-          an archive, not a catalogue.
-        </p>
-      </div>
+    <div class="records-row">
+      <div class="archive-card"><img src="archive-04.png"></div>
+      <div class="archive-card"><img src="archive-05.png"></div>
+      <div class="archive-card"><img src="archive-07.png"></div>
+      <div class="archive-card"><img src="archive-06.png"></div>
+    </div>
 
-      <div class="records-layout">
+    <div class="archive-subsection">
+      <div class="archive-subtitle">FANSO</div>
 
-        <div class="records-row">
-          <a class="archive-card" href="https://sichtexot.com/products/sole-spirito-special" target="_blank">
-            <div class="archive-cover">
-              <img src="archive-01.png" alt="Sole Spirito cover">
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Sole Spirito</div>
-              <div class="archive-year">2024</div>
-            </div>
-            <div class="archive-format">vinyl</div>
-          </a>
-
-          <a class="archive-card" href="https://ear-sight.bandcamp.com/album/flux" target="_blank">
-            <div class="archive-cover">
-              <img src="archive-02.png" alt="Flux cover">
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Flux</div>
-              <div class="archive-year">2024</div>
-            </div>
-            <div class="archive-format">vinyl</div>
-          </a>
-
-          <div class="archive-card archive-card-static">
-            <div class="archive-cover">
-              <img src="archive-03.png" alt="Garbeo cover">
-              <span class="archive-status">Sold out</span>
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Garbeo</div>
-              <div class="archive-year">2020</div>
-            </div>
-            <div class="archive-format">vinyl</div>
-          </div>
-        </div>
-
-        <div class="records-row">
-          <div class="archive-card archive-card-static">
-            <div class="archive-cover">
-              <img src="archive-04.png" alt="Fungus cover">
-              <span class="archive-status">Sold out</span>
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Fungus</div>
-              <div class="archive-year">2018</div>
-            </div>
-            <div class="archive-format">vinyl</div>
-          </div>
-
-          <div class="archive-card archive-card-static">
-            <div class="archive-cover">
-              <img src="archive-05.png" alt="Nest cover">
-              <span class="archive-status">Sold out</span>
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Nest</div>
-              <div class="archive-year">2016</div>
-            </div>
-            <div class="archive-format">vinyl</div>
-          </div>
-
-          <div class="archive-card archive-card-static">
-            <div class="archive-cover">
-              <img src="archive-07.png" alt="Dalsy cover">
-              <span class="archive-status">Sold out</span>
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Dalsy</div>
-              <div class="archive-year">2016</div>
-            </div>
-            <div class="archive-format">vinyl</div>
-          </div>
-
-          <div class="archive-card archive-card-static">
-            <div class="archive-cover">
-              <img src="archive-06.png" alt="Sumergido cover">
-              <span class="archive-status">Sold out</span>
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Sumergido</div>
-              <div class="archive-year">2015</div>
-            </div>
-            <div class="archive-format">vinyl</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="archive-subsection">
-        <div class="archive-subtitle">FANSO</div>
-
-        <div class="fanso-row">
-          <a class="archive-card" href="https://guayabarecords.com/producto/fanso-musica-para-lagartos-vinilo/" target="_blank">
-            <div class="archive-cover">
-              <img src="fanso-01.png" alt="Música para Lagartos cover">
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Música para Lagartos</div>
-              <div class="archive-year">2018</div>
-            </div>
-            <div class="archive-format">12" vinyl</div>
-          </a>
-
-          <div class="archive-card archive-card-static">
-            <div class="archive-cover">
-              <img src="fanso-02.png" alt="Acid House cover">
-              <span class="archive-status">Sold out</span>
-            </div>
-            <div class="archive-meta">
-              <div class="archive-name">Acid House</div>
-              <div class="archive-year">2015</div>
-            </div>
-            <div class="archive-format">12" vinyl</div>
-          </div>
+      <div class="fanso-row">
+        <div class="archive-card"><img src="fanso-01.png"></div>
+        <div class="archive-card archive-card-static">
+          <img src="fanso-02.png">
+          <span class="archive-status">Sold out</span>
         </div>
       </div>
-
     </div>
-  </section>
 
-  <section class="bio">
-    <p>
-      Madrid / Berlin<br>
-      dust / tape / groove
-    </p>
-  </section>
+  </div>
+</section>
 
-  <section class="links">
-    <h2>LINKS</h2>
+<section class="links">
+  <h2>LINKS</h2>
 
-    <div class="link-list">
-      <a href="https://open.spotify.com/intl-de/artist/5schXx0Ys4N52iU7On2j4c" target="_blank">SPOTIFY →</a>
-      <a href="https://soundcloud.com/madeinm" target="_blank">SOUNDCLOUD →</a>
-      <a href="https://madeinm.bandcamp.com/" target="_blank">BANDCAMP →</a>
-      <a href="https://www.instagram.com/made.in.m/?hl=de" target="_blank">INSTAGRAM →</a>
-    </div>
-  </section>
+  <div class="link-list">
+    <a href="#">SPOTIFY →</a>
+    <a href="#">SOUNDCLOUD →</a>
+    <a href="#">BANDCAMP →</a>
+    <a href="#">INSTAGRAM →</a>
+    <a href="mailto:madeinmbeats@gmail.com">EMAIL →</a>
+    <a href="#imprint">IMPRINT →</a>
+  </div>
+</section>
+
+<section id="imprint" style="text-align:center; padding:80px 20px; opacity:0.5;">
+  <p>
+    Made in M<br>
+    Berlin, Germany<br>
+    madeinmbeats@gmail.com
+  </p>
+</section>
 
 </body>
 </html>
