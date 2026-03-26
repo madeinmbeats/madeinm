@@ -371,6 +371,128 @@
       gap: 28px;
     }
 
+    /* ARCHIVE VIDEO DIARY */
+    .video-archive {
+      padding: 120px 20px;
+      background: rgba(0,0,0,0.97);
+    }
+
+    .video-archive-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .video-archive-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .video-archive-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.42;
+      margin-bottom: 14px;
+    }
+
+    .video-archive-title {
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+      color: #e8d8a0;
+      font-size: 1rem;
+    }
+
+    .video-archive-note {
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      letter-spacing: 2px;
+      opacity: 0.48;
+    }
+
+    .video-archive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+
+    .video-entry {
+      display: block;
+      text-decoration: none;
+      color: #f5f5f5;
+      transition: transform 0.28s ease, opacity 0.28s ease;
+    }
+
+    .video-entry:hover {
+      transform: translateY(-3px);
+      opacity: 1;
+    }
+
+    .video-frame {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+    }
+
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: contrast(0.98) brightness(0.96);
+      transition: transform 0.45s ease, opacity 0.45s ease;
+    }
+
+    .video-entry:hover .video-frame video {
+      transform: scale(1.03);
+      opacity: 0.92;
+    }
+
+    .video-caption {
+      margin-top: 10px;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.42;
+    }
+
+    .video-entry.tall .video-frame {
+      aspect-ratio: 3 / 4;
+    }
+
+    .video-entry.wide .video-frame {
+      aspect-ratio: 16 / 10;
+    }
+
+    .video-entry.square .video-frame {
+      aspect-ratio: 1 / 1;
+    }
+
+    .video-entry.rotate-left {
+      transform: rotate(-1.6deg);
+    }
+
+    .video-entry.rotate-right {
+      transform: rotate(1.4deg);
+    }
+
+    .video-entry.rotate-left:hover,
+    .video-entry.rotate-right:hover {
+      transform: translateY(-3px) rotate(0deg);
+    }
+
+    .video-entry.shift-down {
+      margin-top: 34px;
+    }
+
+    .video-entry.shift-up {
+      margin-top: -18px;
+    }
+
     .bio {
       padding: 100px 20px;
       text-align: center;
@@ -425,6 +547,17 @@
       }
     }
 
+    @media (max-width: 950px) {
+      .video-archive-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+
+      .video-entry.shift-up,
+      .video-entry.shift-down {
+        margin-top: 0;
+      }
+    }
+
     @media (max-width: 700px) {
       h1 {
         font-size: 3.5rem;
@@ -434,7 +567,8 @@
         grid-template-columns: 1fr;
       }
 
-      .archive {
+      .archive,
+      .video-archive {
         padding: 95px 18px;
       }
 
@@ -466,6 +600,21 @@
       .button-link {
         margin: 0;
       }
+
+      .video-archive-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .video-entry.rotate-left,
+      .video-entry.rotate-right {
+        transform: none;
+      }
+
+      .video-entry.rotate-left:hover,
+      .video-entry.rotate-right:hover {
+        transform: translateY(-3px);
+      }
     }
   </style>
 </head>
@@ -490,6 +639,7 @@
       <div class="buttons">
         <a class="button-link" href="#playlists">LISTEN →</a>
         <a class="button-link" href="#records">RECORDS →</a>
+        <a class="button-link" href="#archive">ARCHIVE →</a>
         <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank">DRUMKIT →</a>
       </div>
     </div>
@@ -535,13 +685,11 @@
     <div class="archive-inner">
 
       <div class="archive-heading">
-       <div class="archive-kicker">on vinyl</div>
-
-<h2 class="archive-title">RECORDS</h2>
-
-<p class="archive-note">
-  made in m - physical releases
-</p>
+        <div class="archive-kicker">a collection of pressed works</div>
+        <h2 class="archive-title">RECORDS</h2>
+        <p class="archive-note">
+          physical releases on vinyl
+        </p>
       </div>
 
       <div class="records-layout">
@@ -664,6 +812,87 @@
     </div>
   </section>
 
+  <section class="video-archive" id="archive">
+    <div class="video-archive-inner">
+
+      <div class="video-archive-heading">
+        <div class="video-archive-kicker">moving stills / film diary</div>
+        <h2 class="video-archive-title">ARCHIVE</h2>
+        <p class="video-archive-note">
+          fragments, loops and found moments
+        </p>
+      </div>
+
+      <div class="video-archive-grid">
+
+        <a class="video-entry tall rotate-left" href="https://www.youtube.com/watch?v=KhXDxHHVe80&list=RDKhXDxHHVe80&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline>
+              <source src="album01.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">01</div>
+        </a>
+
+        <a class="video-entry tall shift-down" href="https://www.youtube.com/watch?v=3ze-W_js1NE&list=RD3ze-W_js1NE&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline>
+              <source src="album02.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">02</div>
+        </a>
+
+        <a class="video-entry wide rotate-right" href="https://www.youtube.com/watch?v=DGIMU3S2GfE&list=RDDGIMU3S2GfE&start_radio=1&t=1389s" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline>
+              <source src="album03.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">03</div>
+        </a>
+
+        <a class="video-entry square shift-up" href="https://www.youtube.com/watch?v=HpiWTDOin6Y&list=RDHpiWTDOin6Y&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline>
+              <source src="album04.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">04</div>
+        </a>
+
+        <a class="video-entry tall rotate-right" href="https://www.youtube.com/watch?v=Se9P4Rdx-n8&list=RDSe9P4Rdx-n8&start_radio=1&t=1497s" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline>
+              <source src="album05.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">05</div>
+        </a>
+
+        <a class="video-entry wide" href="https://www.youtube.com/watch?v=rEjIRpISPEM&list=RDrEjIRpISPEM&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline>
+              <source src="album06.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">06</div>
+        </a>
+
+        <a class="video-entry tall rotate-left shift-up" href="https://www.youtube.com/watch?v=2qWaL_IBh0Y&list=RD2qWaL_IBh0Y&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline>
+              <source src="album07.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-caption">07</div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
   <section class="bio">
     <p>
       Madrid / Berlin<br>
@@ -680,7 +909,6 @@
       <a href="https://madeinm.bandcamp.com/" target="_blank">BANDCAMP →</a>
       <a href="https://www.instagram.com/made.in.m/?hl=de" target="_blank">INSTAGRAM →</a>
       <a href="mailto:madeinmbeats@gmail.com">EMAIL →</a>
-    
     </div>
   </section>
 
