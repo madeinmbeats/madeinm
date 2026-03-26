@@ -378,7 +378,7 @@
     }
 
     .video-archive-inner {
-      max-width: 1100px;
+      max-width: 1350px;
       margin: 0 auto;
     }
 
@@ -413,8 +413,8 @@
 
     .video-archive-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(220px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 32px;
       align-items: start;
     }
 
@@ -437,6 +437,10 @@
       border: 1px solid rgba(255,255,255,0.12);
       box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
       aspect-ratio: 3 / 4;
+    }
+
+    .video-entry.horizontal .video-frame {
+      aspect-ratio: 16 / 10;
     }
 
     .video-frame video {
@@ -537,13 +541,28 @@
     }
 
     @media (max-width: 950px) {
+      .video-archive-inner {
+        max-width: 100%;
+      }
+
       .video-archive-grid {
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+        gap: 20px;
       }
 
       .video-entry.shift-up,
       .video-entry.shift-down {
         margin-top: 0;
+      }
+
+      .video-entry.rotate-left,
+      .video-entry.rotate-right {
+        transform: none;
+      }
+
+      .video-entry.rotate-left:hover,
+      .video-entry.rotate-right:hover {
+        transform: translateY(-3px);
       }
     }
 
@@ -591,18 +610,16 @@
       }
 
       .video-archive-grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 16px;
       }
 
-      .video-entry.rotate-left,
-      .video-entry.rotate-right {
-        transform: none;
+      .video-entry.horizontal .video-frame {
+        aspect-ratio: 3 / 4;
       }
 
-      .video-entry.rotate-left:hover,
-      .video-entry.rotate-right:hover {
-        transform: translateY(-3px);
+      .video-caption {
+        font-size: 0.62rem;
       }
     }
   </style>
@@ -814,7 +831,7 @@
 
       <div class="video-archive-grid">
 
-        <a class="video-entry rotate-left" href="https://www.youtube.com/watch?v=KhXDxHHVe80&list=RDKhXDxHHVe80&start_radio=1" target="_blank">
+        <a class="video-entry horizontal rotate-left" href="https://www.youtube.com/watch?v=KhXDxHHVe80&list=RDKhXDxHHVe80&start_radio=1" target="_blank">
           <div class="video-frame">
             <video autoplay muted loop playsinline>
               <source src="album01.mp4" type="video/mp4">
@@ -850,7 +867,7 @@
           <div class="video-caption">04</div>
         </a>
 
-        <a class="video-entry rotate-right" href="https://www.youtube.com/watch?v=Se9P4Rdx-n8&list=RDSe9P4Rdx-n8&start_radio=1&t=1497s" target="_blank">
+        <a class="video-entry horizontal" href="https://www.youtube.com/watch?v=Se9P4Rdx-n8&list=RDSe9P4Rdx-n8&start_radio=1&t=1497s" target="_blank">
           <div class="video-frame">
             <video autoplay muted loop playsinline>
               <source src="album05.mp4" type="video/mp4">
@@ -859,7 +876,7 @@
           <div class="video-caption">05</div>
         </a>
 
-        <a class="video-entry" href="https://www.youtube.com/watch?v=rEjIRpISPEM&list=RDrEjIRpISPEM&start_radio=1" target="_blank">
+        <a class="video-entry horizontal" href="https://www.youtube.com/watch?v=rEjIRpISPEM&list=RDrEjIRpISPEM&start_radio=1" target="_blank">
           <div class="video-frame">
             <video autoplay muted loop playsinline>
               <source src="album06.mp4" type="video/mp4">
