@@ -426,16 +426,18 @@
     }
 
     .video-entry:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       opacity: 1;
     }
 
     .video-frame {
       position: relative;
       overflow: hidden;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+      background: #111;
+      border: 6px solid rgba(245,245,245,0.96);
+      box-shadow:
+        0 8px 18px rgba(0,0,0,0.6),
+        0 2px 6px rgba(0,0,0,0.4);
       aspect-ratio: 3 / 4;
     }
 
@@ -457,6 +459,12 @@
       opacity: 0.92;
     }
 
+    .video-entry:hover .video-frame {
+      box-shadow:
+        0 14px 30px rgba(0,0,0,0.8),
+        0 4px 10px rgba(0,0,0,0.5);
+    }
+
     .video-entry.rotate-left {
       transform: rotate(-1.5deg);
     }
@@ -467,7 +475,7 @@
 
     .video-entry.rotate-left:hover,
     .video-entry.rotate-right:hover {
-      transform: translateY(-3px) rotate(0deg);
+      transform: translateY(-4px) rotate(0deg);
     }
 
     .video-entry.shift-down {
@@ -483,11 +491,20 @@
     }
 
     .video-entry.lift-huge {
-      margin-top: -220px;
+      margin-top: -300px;
     }
 
     .video-entry.lift-medium {
-      margin-top: -80px;
+      margin-top: -160px;
+    }
+
+    .video-entry.small {
+      transform: scale(0.78);
+      transform-origin: top center;
+    }
+
+    .video-entry.small:hover {
+      transform: scale(0.82) translateY(-4px);
     }
 
     .bio {
@@ -562,13 +579,15 @@
       }
 
       .video-entry.rotate-left,
-      .video-entry.rotate-right {
+      .video-entry.rotate-right,
+      .video-entry.small {
         transform: none;
       }
 
       .video-entry.rotate-left:hover,
-      .video-entry.rotate-right:hover {
-        transform: translateY(-3px);
+      .video-entry.rotate-right:hover,
+      .video-entry.small:hover {
+        transform: translateY(-4px);
       }
 
       .video-entry.span-center {
@@ -861,7 +880,7 @@
           </div>
         </a>
 
-        <a class="video-entry shift-up lift-huge" href="https://www.youtube.com/watch?v=HpiWTDOin6Y&list=RDHpiWTDOin6Y&start_radio=1" target="_blank">
+        <a class="video-entry shift-up lift-huge small" href="https://www.youtube.com/watch?v=HpiWTDOin6Y&list=RDHpiWTDOin6Y&start_radio=1" target="_blank">
           <div class="video-frame">
             <video autoplay muted loop playsinline>
               <source src="album04.mp4" type="video/mp4">
