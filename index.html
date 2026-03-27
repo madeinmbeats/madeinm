@@ -490,6 +490,10 @@
       grid-column: 2;
     }
 
+    .video-entry.end-right {
+      grid-column: 3;
+    }
+
     .video-entry.lift-huge {
       margin-top: -300px;
     }
@@ -590,7 +594,8 @@
         transform: translateY(-4px);
       }
 
-      .video-entry.span-center {
+      .video-entry.span-center,
+      .video-entry.end-right {
         grid-column: auto;
       }
     }
@@ -912,7 +917,7 @@
           </div>
         </a>
 
-        <a class="video-entry horizontal rotate-right" href="https://www.youtube.com/watch?v=KhXDxHHVe80&list=RDKhXDxHHVe80&start_radio=1" target="_blank">
+        <a class="video-entry horizontal rotate-right end-right" href="https://www.youtube.com/watch?v=KhXDxHHVe80&list=RDKhXDxHHVe80&start_radio=1" target="_blank">
           <div class="video-frame">
             <video autoplay muted loop playsinline>
               <source src="album01.mp4" type="video/mp4">
