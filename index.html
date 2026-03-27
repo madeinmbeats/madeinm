@@ -174,6 +174,7 @@
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.14);
       margin-bottom: 14px;
+      background: rgba(255,255,255,0.03);
     }
 
     .release-cover img {
@@ -285,6 +286,7 @@
       object-fit: cover;
       display: block;
       transition: transform 0.45s ease, opacity 0.45s ease;
+      background: rgba(255,255,255,0.03);
     }
 
     .archive-card:hover .archive-cover img {
@@ -452,6 +454,7 @@
       object-fit: cover;
       filter: contrast(0.98) brightness(0.96);
       transition: transform 0.45s ease, opacity 0.45s ease;
+      background: rgba(255,255,255,0.03);
     }
 
     .video-entry:hover .video-frame video {
@@ -657,11 +660,11 @@
 
 <body>
 
-  <video class="bg-video" autoplay muted loop playsinline>
+  <video class="bg-video" autoplay muted loop playsinline preload="auto">
     <source src="hero.mp4" type="video/mp4">
   </video>
 
-  <video class="grain" autoplay muted loop playsinline>
+  <video class="grain" autoplay muted loop playsinline preload="auto">
     <source src="grain.mp4" type="video/mp4">
   </video>
 
@@ -703,14 +706,14 @@
     <div class="release-grid">
       <a class="release-card" href="https://open.spotify.com/intl-de/album/4eJsXtiVnMUKUMoapDqOUr?si=uWaGAU-tTleBJ7pX8CsvBw" target="_blank">
         <div class="release-cover">
-          <img src="snowing.png" alt="Snowing cover">
+          <img data-src="snowing.png" alt="Snowing cover">
         </div>
         <div class="release-title">Snowing</div>
       </a>
 
       <a class="release-card" href="https://madeinm.bandcamp.com/track/bifurca" target="_blank">
         <div class="release-cover">
-          <img src="bifurca.png" alt="Bifurca cover">
+          <img data-src="bifurca.png" alt="Bifurca cover">
         </div>
         <div class="release-title">bifurca</div>
       </a>
@@ -732,7 +735,7 @@
         <div class="records-row">
           <a class="archive-card" href="https://sichtexot.com/products/sole-spirito-special" target="_blank">
             <div class="archive-cover">
-              <img src="archive-01.png" alt="Sole Spirito cover">
+              <img data-src="archive-01.png" alt="Sole Spirito cover">
             </div>
             <div class="archive-meta">
               <div class="archive-name">Sole Spirito</div>
@@ -743,7 +746,7 @@
 
           <a class="archive-card" href="https://ear-sight.bandcamp.com/album/flux" target="_blank">
             <div class="archive-cover">
-              <img src="archive-02.png" alt="Flux cover">
+              <img data-src="archive-02.png" alt="Flux cover">
             </div>
             <div class="archive-meta">
               <div class="archive-name">Flux</div>
@@ -754,7 +757,7 @@
 
           <div class="archive-card archive-card-static">
             <div class="archive-cover">
-              <img src="archive-03.png" alt="Garbeo cover">
+              <img data-src="archive-03.png" alt="Garbeo cover">
               <span class="archive-status">Sold out</span>
             </div>
             <div class="archive-meta">
@@ -768,7 +771,7 @@
         <div class="records-row">
           <div class="archive-card archive-card-static">
             <div class="archive-cover">
-              <img src="archive-04.png" alt="Fungus cover">
+              <img data-src="archive-04.png" alt="Fungus cover">
               <span class="archive-status">Sold out</span>
             </div>
             <div class="archive-meta">
@@ -780,7 +783,7 @@
 
           <div class="archive-card archive-card-static">
             <div class="archive-cover">
-              <img src="archive-05.png" alt="Nest cover">
+              <img data-src="archive-05.png" alt="Nest cover">
               <span class="archive-status">Sold out</span>
             </div>
             <div class="archive-meta">
@@ -792,7 +795,7 @@
 
           <div class="archive-card archive-card-static">
             <div class="archive-cover">
-              <img src="archive-07.png" alt="Dalsy cover">
+              <img data-src="archive-07.png" alt="Dalsy cover">
               <span class="archive-status">Sold out</span>
             </div>
             <div class="archive-meta">
@@ -804,7 +807,7 @@
 
           <div class="archive-card archive-card-static">
             <div class="archive-cover">
-              <img src="archive-06.png" alt="Sumergido cover">
+              <img data-src="archive-06.png" alt="Sumergido cover">
               <span class="archive-status">Sold out</span>
             </div>
             <div class="archive-meta">
@@ -822,7 +825,7 @@
         <div class="fanso-row">
           <a class="archive-card" href="https://guayabarecords.com/producto/fanso-musica-para-lagartos-vinilo/" target="_blank">
             <div class="archive-cover">
-              <img src="fanso-01.png" alt="Música para Lagartos cover">
+              <img data-src="fanso-01.png" alt="Música para Lagartos cover">
             </div>
             <div class="archive-meta">
               <div class="archive-name">Música para Lagartos</div>
@@ -833,7 +836,7 @@
 
           <div class="archive-card archive-card-static">
             <div class="archive-cover">
-              <img src="fanso-02.png" alt="Acid House cover">
+              <img data-src="fanso-02.png" alt="Acid House cover">
               <span class="archive-status">Sold out</span>
             </div>
             <div class="archive-meta">
@@ -862,68 +865,67 @@
       <div class="video-archive-grid">
 
         <a class="video-entry horizontal rotate-left" href="https://www.youtube.com/watch?v=KhXDxHHVe80&list=RDKhXDxHHVe80&start_radio=1" target="_blank">
-  <div class="video-frame">
-    <video autoplay muted loop playsinline>
-      <source src="album01.mp4" type="video/mp4">
-    </video>
-  </div>
-</a>
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album01.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
 
         <a class="video-entry shift-down" href="https://www.youtube.com/watch?v=3ze-W_js1NE&list=RD3ze-W_js1NE&start_radio=1" target="_blank">
           <div class="video-frame">
-            <video autoplay muted loop playsinline>
-              <source src="album02.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album02.mp4" type="video/mp4">
             </video>
           </div>
         </a>
 
         <a class="video-entry rotate-right" href="https://www.youtube.com/watch?v=DGIMU3S2GfE&list=RDDGIMU3S2GfE&start_radio=1&t=1389s" target="_blank">
           <div class="video-frame">
-            <video autoplay muted loop playsinline>
-              <source src="album03.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album03.mp4" type="video/mp4">
             </video>
           </div>
         </a>
 
         <a class="video-entry shift-up lift-huge small" href="https://www.youtube.com/watch?v=HpiWTDOin6Y&list=RDHpiWTDOin6Y&start_radio=1" target="_blank">
           <div class="video-frame">
-            <video autoplay muted loop playsinline>
-              <source src="album04.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album04.mp4" type="video/mp4">
             </video>
           </div>
         </a>
 
         <a class="video-entry rotate-left span-center" href="https://www.youtube.com/watch?v=2qWaL_IBh0Y&list=RD2qWaL_IBh0Y&start_radio=1" target="_blank">
           <div class="video-frame">
-            <video autoplay muted loop playsinline>
-              <source src="album07.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album07.mp4" type="video/mp4">
             </video>
           </div>
         </a>
 
         <a class="video-entry horizontal" href="https://www.youtube.com/watch?v=Se9P4Rdx-n8&list=RDSe9P4Rdx-n8&start_radio=1&t=1497s" target="_blank">
           <div class="video-frame">
-            <video autoplay muted loop playsinline>
-              <source src="album05.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album05.mp4" type="video/mp4">
             </video>
           </div>
         </a>
 
         <a class="video-entry horizontal lift-medium" href="https://www.youtube.com/watch?v=rEjIRpISPEM&list=RDrEjIRpISPEM&start_radio=1" target="_blank">
           <div class="video-frame">
-            <video autoplay muted loop playsinline>
-              <source src="album06.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album06.mp4" type="video/mp4">
             </video>
           </div>
         </a>
 
         <a class="video-entry horizontal lift-huge rotate-right end-right" href="https://www.youtube.com/watch?v=RrTzG_OuCG8" target="_blank">
-  <div class="video-frame">
-    <video autoplay muted loop playsinline>
-      <source src="album08.mp4" type="video/mp4">
-    </video>
-  </div>
-</a>
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album08.mp4" type="video/mp4">
+            </video>
+          </div>
         </a>
 
       </div>
@@ -958,6 +960,69 @@
       contact: madeinmbeats@gmail.com
     </p>
   </section>
+
+  <script>
+    function loadImages(selector) {
+      document.querySelectorAll(selector).forEach((img) => {
+        const src = img.getAttribute('data-src');
+        if (src && !img.getAttribute('src')) {
+          img.setAttribute('src', src);
+        }
+      });
+    }
+
+    function loadVideos(selector) {
+      document.querySelectorAll(selector).forEach((video) => {
+        const source = video.querySelector('source[data-src]');
+        if (source && !source.getAttribute('src')) {
+          source.setAttribute('src', source.getAttribute('data-src'));
+          video.load();
+
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+          }
+        }
+      });
+    }
+
+    function runPhasedLoading() {
+      loadImages('.featured img[data-src]');
+
+      window.setTimeout(() => {
+        loadImages('.archive img[data-src]');
+      }, 150);
+
+      window.setTimeout(() => {
+        loadVideos('.video-archive video');
+      }, 300);
+    }
+
+    window.addEventListener('load', () => {
+      const heroVideo = document.querySelector('.bg-video');
+
+      if (!heroVideo) {
+        runPhasedLoading();
+        return;
+      }
+
+      let started = false;
+
+      function startOnce() {
+        if (started) return;
+        started = true;
+        runPhasedLoading();
+      }
+
+      if (heroVideo.readyState >= 3) {
+        startOnce();
+      } else {
+        heroVideo.addEventListener('loadeddata', startOnce, { once: true });
+        heroVideo.addEventListener('canplay', startOnce, { once: true });
+        window.setTimeout(startOnce, 2500);
+      }
+    });
+  </script>
 
 </body>
 </html>
