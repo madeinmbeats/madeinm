@@ -622,7 +622,18 @@
       }
 
       .release-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 18px;
+        max-width: 520px;
+      }
+
+      .release-card {
+        width: 100%;
+      }
+
+      .release-title {
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
       }
 
       .buttons {
@@ -644,18 +655,6 @@
         grid-template-columns: repeat(2, minmax(140px, 1fr));
         gap: 18px;
         justify-content: center;
-      }
-
-      .records-row {
-        grid-auto-flow: row;
-      }
-
-      .records-row:first-child {
-        grid-template-columns: repeat(3, minmax(140px, 1fr));
-      }
-
-      .records-row:first-child .archive-card:nth-child(3) {
-        grid-column: 2;
       }
 
       .archive-card {
