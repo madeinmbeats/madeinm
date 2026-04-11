@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Made in M</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -605,34 +606,23 @@
 
     @media (max-width: 700px) {
       h1 {
-        font-size: 3.5rem;
+        font-size: 3rem;
+        letter-spacing: 3px;
+      }
+
+      .playlists,
+      .featured,
+      .archive,
+      .video-archive,
+      .bio,
+      .links,
+      .imprint {
+        padding-top: 80px;
+        padding-bottom: 80px;
       }
 
       .release-grid {
         grid-template-columns: 1fr;
-      }
-
-      .archive,
-      .video-archive {
-        padding: 95px 18px;
-      }
-
-      .records-row,
-      .fanso-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 22px;
-      }
-
-      .archive-card {
-        width: min(100%, 320px);
-        flex: none;
-      }
-
-      .archive-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
       }
 
       .buttons {
@@ -644,11 +634,36 @@
 
       .button-link {
         margin: 0;
+        width: 220px;
+        text-align: center;
+      }
+
+      .records-row,
+      .fanso-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 18px;
+        justify-content: center;
+      }
+
+      .archive-card {
+        width: 100%;
+        flex: none;
+      }
+
+      .archive-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .archive-subsection {
+        max-width: 520px;
       }
 
       .video-archive-grid {
         grid-template-columns: repeat(2, minmax(140px, 1fr));
-        gap: 16px;
+        gap: 12px;
       }
 
       .video-entry.horizontal .video-frame {
@@ -856,10 +871,10 @@
 
       <div class="video-archive-heading">
         <div class="video-archive-kicker">moving archive</div>
-<h2 class="video-archive-title">ARCHIVE</h2>
-<p class="video-archive-note">
-  open a fragment, follow it further
-</p>
+        <h2 class="video-archive-title">ARCHIVE</h2>
+        <p class="video-archive-note">
+          open a fragment, follow it further
+        </p>
       </div>
 
       <div class="video-archive-grid">
