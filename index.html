@@ -646,6 +646,18 @@
         justify-content: center;
       }
 
+      .records-row {
+        grid-auto-flow: row;
+      }
+
+      .records-row:first-child {
+        grid-template-columns: repeat(3, minmax(140px, 1fr));
+      }
+
+      .records-row:first-child .archive-card:nth-child(3) {
+        grid-column: 2;
+      }
+
       .archive-card {
         width: 100%;
         flex: none;
@@ -838,16 +850,17 @@
         <div class="archive-subtitle">FANSO</div>
 
         <div class="fanso-row">
-          <a class="archive-card" href="https://guayabarecords.com/producto/fanso-musica-para-lagartos-vinilo/" target="_blank">
+          <div class="archive-card archive-card-static">
             <div class="archive-cover">
               <img data-src="fanso-01.png" alt="Música para Lagartos cover">
+              <span class="archive-status">Sold out</span>
             </div>
             <div class="archive-meta">
               <div class="archive-name">Música para Lagartos</div>
               <div class="archive-year">2018</div>
             </div>
             <div class="archive-format">12" vinyl</div>
-          </a>
+          </div>
 
           <div class="archive-card archive-card-static">
             <div class="archive-cover">
