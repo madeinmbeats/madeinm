@@ -1,303 +1,1055 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Made in M</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Made in M</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Space Grotesk', Arial, sans-serif;
+    }
 
-<style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Space Grotesk', Arial, sans-serif;
-}
+    body {
+      background: black;
+      color: #f5f5f5;
+    }
 
-body {
-  background: black;
-  color: #f5f5f5;
-}
+    video.bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -3;
+    }
 
-/* HERO VIDEO */
+    video.grain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: 10;
+      mix-blend-mode: screen;
+    }
 
-video.bg-video {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -3;
-}
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
+    }
 
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: -1;
-}
+    .hero {
+      height: 100vh;
+      position: relative;
+    }
 
-/* HERO */
+    .content {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+      max-width: 900px;
+    }
 
-.hero {
-  height: 100vh;
-  position: relative;
-}
+    h1 {
+      font-size: 5.5rem;
+      letter-spacing: 5px;
+      font-weight: 600;
+      color: #e8d8a0;
+      text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
 
-.content {
-  position: absolute;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+    p {
+      margin-top: 10px;
+      font-size: 1rem;
+      opacity: 0.75;
+      letter-spacing: 2px;
+    }
 
-h1 {
-  font-size: 5.5rem;
-  letter-spacing: 5px;
-  font-weight: 600;
-  color: #e8d8a0;
-}
+    .buttons {
+      margin-top: 40px;
+    }
 
-/* BUTTONS */
+    .button-link {
+      text-decoration: none;
+      color: #f5f5f5;
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 8px 18px;
+      margin: 0 8px;
+      display: inline-block;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      opacity: 0.85;
+      transition: 0.3s;
+    }
 
-.buttons {
-  margin-top: 40px;
-}
+    .button-link:hover {
+      background: rgba(255,255,255,0.1);
+      color: #e8d8a0;
+      border-color: #e8d8a0;
+    }
 
-.button-link {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 5px;
-  border: 1px solid rgba(255,255,255,0.5);
-  text-decoration: none;
-  color: white;
-}
+    .playlists {
+      padding: 100px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.9);
+    }
 
-/* SECTIONS */
+    .playlists h2,
+    .featured h2,
+    .links h2,
+    .archive-title,
+    .imprint h2 {
+      margin-bottom: 40px;
+      letter-spacing: 3px;
+      color: #e8d8a0;
+      font-size: 1rem;
+      text-align: center;
+    }
 
-section {
-  padding: 100px 20px;
-  text-align: center;
-}
+    .playlist {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.03);
+      transition: 0.3s;
+    }
 
-h2 {
-  color: #e8d8a0;
-  letter-spacing: 3px;
-  margin-bottom: 40px;
-}
+    .playlist:hover {
+      border-color: #e8d8a0;
+      transform: translateY(-2px);
+    }
 
-/* RELEASES */
+    .playlist a {
+      text-decoration: none;
+      color: #f5f5f5;
+      letter-spacing: 2px;
+    }
 
-.release-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 180px);
-  justify-content: center;
-  gap: 30px;
-}
+    .featured {
+      padding: 100px 20px;
+      text-align: center;
+      background: black;
+    }
 
-.release-cover {
-  aspect-ratio: 1;
-  border: 1px solid rgba(255,255,255,0.1);
-}
+    .release-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(240px, 320px));
+      justify-content: center;
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-.release-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .release-card {
+      text-decoration: none;
+      color: #f5f5f5;
+      display: block;
+    }
 
-/* RECORDS */
+    .release-cover {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      margin-bottom: 14px;
+      background: rgba(255,255,255,0.03);
+    }
 
-.records-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  justify-items: center;
-  margin-bottom: 30px;
-}
+    .release-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.archive-card {
-  width: 180px;
-}
+    .release-title {
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      opacity: 0.85;
+    }
 
-.archive-cover {
-  aspect-ratio: 1;
-  border: 1px solid rgba(255,255,255,0.1);
-}
+    /* RECORDS */
+    .archive {
+      padding: 120px 20px;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.92), rgba(6,6,6,0.98)),
+        rgba(0,0,0,0.94);
+    }
 
-.archive-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .archive-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      width: 100%;
+    }
 
-/* VIDEO GRID */
+    .archive-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
 
-.video-archive-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
+    .archive-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.42;
+      margin-bottom: 14px;
+    }
 
-.video-frame {
-  aspect-ratio: 3/4;
-  border: 2px solid rgba(255,255,255,0.4);
-}
+    .archive-title {
+      margin-bottom: 10px;
+    }
 
-.video-frame video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .archive-note {
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      letter-spacing: 2px;
+      opacity: 0.48;
+    }
 
-/* MOBILE */
+    .records-layout {
+      max-width: 980px;
+      margin: 0 auto 70px;
+    }
 
-@media (max-width: 700px) {
+    .records-row {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 28px;
+      flex-wrap: nowrap;
+    }
 
-  h1 {
-    font-size: 3.2rem;
-  }
+    .records-row:last-child {
+      margin-bottom: 0;
+    }
 
-  .buttons {
-    display: flex;
-    flex-direction: column;
-  }
+    .archive-card {
+      width: 220px;
+      flex: 0 0 220px;
+      text-decoration: none;
+      color: #f5f5f5;
+      display: block;
+      opacity: 0.96;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
 
-  .button-link {
-    width: 220px;
-  }
+    .archive-card:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
 
-  /* releases más pequeños */
-  .release-grid {
-    grid-template-columns: repeat(2, 140px);
-    gap: 20px;
-  }
+    .archive-card-static {
+      cursor: default;
+    }
 
-  /* discos en 2 columnas */
-  .records-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .archive-card-static:hover {
+      transform: none;
+    }
 
-  .archive-card {
-    width: 150px;
-  }
+    .archive-cover {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 12px;
+    }
 
-  /* 👉 BONUS: centrar Sumergido */
-  .records-row:last-child .archive-card:last-child {
-    grid-column: span 2;
-    margin: 0 auto;
-  }
+    .archive-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease, opacity 0.45s ease;
+      background: rgba(255,255,255,0.03);
+    }
 
-  /* videos */
-  .video-archive-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .archive-card:hover .archive-cover img {
+      transform: scale(1.04);
+      opacity: 0.92;
+    }
 
-}
+    .archive-card-static:hover .archive-cover img {
+      transform: scale(1.03);
+      opacity: 0.92;
+    }
 
-</style>
+    .archive-status {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      padding: 5px 8px;
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(0,0,0,0.55);
+      color: #f5f5f5;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    .archive-card-static:hover .archive-status {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .archive-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+
+    .archive-name {
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.88;
+    }
+
+    .archive-year {
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      opacity: 0.4;
+      white-space: nowrap;
+    }
+
+    .archive-format {
+      font-size: 0.66rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.36;
+    }
+
+    .archive-subsection {
+      max-width: 760px;
+      margin: 0 auto;
+      padding-top: 26px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .archive-subtitle {
+      text-align: center;
+      margin-bottom: 28px;
+      font-size: 0.74rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #e8d8a0;
+      opacity: 0.78;
+    }
+
+    .fanso-row {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+    }
+
+    /* ARCHIVE VIDEO DIARY */
+    .video-archive {
+      padding: 120px 20px;
+      background: rgba(0,0,0,0.97);
+    }
+
+    .video-archive-inner {
+      max-width: 1350px;
+      margin: 0 auto;
+    }
+
+    .video-archive-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .video-archive-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.42;
+      margin-bottom: 14px;
+    }
+
+    .video-archive-title {
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+      color: #e8d8a0;
+      font-size: 1rem;
+    }
+
+    .video-archive-note {
+      max-width: 560px;
+      margin: 0 auto;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      letter-spacing: 2px;
+      opacity: 0.48;
+    }
+
+    .video-archive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 32px;
+      align-items: start;
+    }
+
+    .video-entry {
+      display: block;
+      text-decoration: none;
+      color: #f5f5f5;
+      transition: transform 0.28s ease, opacity 0.28s ease;
+    }
+
+    .video-entry:hover {
+      transform: translateY(-4px);
+      opacity: 1;
+    }
+
+    .video-frame {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+      border: 2px solid rgba(245,245,245,0.55);
+      box-shadow:
+        0 8px 18px rgba(0,0,0,0.55),
+        0 2px 6px rgba(0,0,0,0.35);
+      aspect-ratio: 3 / 4;
+    }
+
+    .video-entry.horizontal .video-frame {
+      aspect-ratio: 16 / 10;
+    }
+
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      filter: contrast(0.98) brightness(0.96);
+      transition: transform 0.45s ease, opacity 0.45s ease;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .video-entry:hover .video-frame video {
+      transform: scale(1.03);
+      opacity: 0.92;
+    }
+
+    .video-entry:hover .video-frame {
+      box-shadow:
+        0 12px 24px rgba(0,0,0,0.7),
+        0 3px 8px rgba(0,0,0,0.4);
+    }
+
+    .video-entry.rotate-left {
+      transform: rotate(-1.5deg);
+    }
+
+    .video-entry.rotate-right {
+      transform: rotate(1.3deg);
+    }
+
+    .video-entry.rotate-left:hover,
+    .video-entry.rotate-right:hover {
+      transform: translateY(-4px) rotate(0deg);
+    }
+
+    .video-entry.shift-down {
+      margin-top: 30px;
+    }
+
+    .video-entry.shift-up {
+      margin-top: -20px;
+    }
+
+    .video-entry.span-center {
+      grid-column: 2;
+    }
+
+    .video-entry.end-right {
+      grid-column: 3;
+    }
+
+    .video-entry.lift-huge {
+      margin-top: -300px;
+    }
+
+    .video-entry.lift-medium {
+      margin-top: -380px;
+    }
+
+    .video-entry.small {
+      transform: scale(0.78);
+      transform-origin: top center;
+    }
+
+    .video-entry.small:hover {
+      transform: scale(0.82) translateY(-4px);
+    }
+
+    .bio {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .bio p {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      line-height: 1.8;
+    }
+
+    .links {
+      padding: 80px 20px 120px;
+      text-align: center;
+    }
+
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .link-list a {
+      text-decoration: none;
+      color: #f5f5f5;
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+
+    .link-list a:hover {
+      color: #e8d8a0;
+    }
+
+    .imprint {
+      padding: 80px 20px 120px;
+      text-align: center;
+      background: rgba(0,0,0,0.96);
+    }
+
+    .imprint p {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      opacity: 0.5;
+      line-height: 1.8;
+      margin-top: 0;
+    }
+
+    @media (max-width: 1000px) {
+      .records-row {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 950px) {
+      .video-archive-inner {
+        max-width: 100%;
+      }
+
+      .video-archive-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+        gap: 20px;
+      }
+
+      .video-entry.shift-up,
+      .video-entry.shift-down,
+      .video-entry.lift-huge,
+      .video-entry.lift-medium {
+        margin-top: 0;
+      }
+
+      .video-entry.rotate-left,
+      .video-entry.rotate-right,
+      .video-entry.small {
+        transform: none;
+      }
+
+      .video-entry.rotate-left:hover,
+      .video-entry.rotate-right:hover,
+      .video-entry.small:hover {
+        transform: translateY(-4px);
+      }
+
+      .video-entry.span-center,
+      .video-entry.end-right {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 3rem;
+        letter-spacing: 3px;
+      }
+
+      .playlists,
+      .featured,
+      .archive,
+      .video-archive,
+      .bio,
+      .links,
+      .imprint {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+
+      .release-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 18px;
+        max-width: 520px;
+      }
+
+      .release-card {
+        width: 100%;
+      }
+
+      .release-title {
+        font-size: 0.82rem;
+        letter-spacing: 1.5px;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .button-link {
+        margin: 0;
+        width: 220px;
+        text-align: center;
+      }
+
+      .records-row,
+      .fanso-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 18px;
+        justify-content: center;
+      }
+
+      .archive-card {
+        width: 100%;
+        flex: none;
+      }
+
+      .archive-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .archive-subsection {
+        max-width: 520px;
+      }
+
+      .video-archive-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 12px;
+      }
+
+      .video-entry.horizontal .video-frame {
+        aspect-ratio: 3 / 4;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<video class="bg-video" autoplay muted loop playsinline>
-  <source src="hero.mp4" type="video/mp4">
-</video>
+  <video class="bg-video" autoplay muted loop playsinline preload="auto">
+    <source src="hero.mp4" type="video/mp4">
+  </video>
 
-<div class="overlay"></div>
+  <video class="grain" autoplay muted loop playsinline preload="auto">
+    <source src="grain.mp4" type="video/mp4">
+  </video>
 
-<section class="hero">
-  <div class="content">
-    <h1>MADE IN M</h1>
+  <div class="overlay"></div>
 
-    <div class="buttons">
-      <a class="button-link" href="#playlists">LISTEN</a>
-      <a class="button-link" href="#records">RECORDS</a>
-      <a class="button-link" href="#archive">ARCHIVE</a>
+  <section class="hero">
+    <div class="content">
+      <h1>MADE IN M</h1>
+      <p>beats</p>
+
+      <div class="buttons">
+        <a class="button-link" href="#playlists">LISTEN →</a>
+        <a class="button-link" href="#records">RECORDS →</a>
+        <a class="button-link" href="#archive">ARCHIVE →</a>
+        <a class="button-link" href="https://made-in-m-digitalluc.sellfy.store/p/drum-essentials/" target="_blank">DRUMKIT →</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="featured">
-  <h2>RECENT RELEASES</h2>
+  <section class="playlists" id="playlists">
+    <h2>PLAYLISTS</h2>
 
-  <div class="release-grid">
-    <div class="release-cover"><img data-src="snowing.png"></div>
-    <div class="release-cover"><img data-src="bifurca.png"></div>
-  </div>
-</section>
-
-<section class="archive" id="records">
-  <h2>RECORDS</h2>
-
-  <div class="records-row">
-    <div class="archive-card"><div class="archive-cover"><img data-src="archive-01.png"></div></div>
-    <div class="archive-card"><div class="archive-cover"><img data-src="archive-02.png"></div></div>
-    <div class="archive-card"><div class="archive-cover"><img data-src="archive-03.png"></div></div>
-    <div class="archive-card"><div class="archive-cover"><img data-src="archive-04.png"></div></div>
-  </div>
-
-  <div class="records-row">
-    <div class="archive-card"><div class="archive-cover"><img data-src="archive-05.png"></div></div>
-    <div class="archive-card"><div class="archive-cover"><img data-src="archive-07.png"></div></div>
-    <div class="archive-card"><div class="archive-cover"><img data-src="archive-06.png"></div></div>
-  </div>
-
-</section>
-
-<section class="video-archive" id="archive">
-  <h2>ARCHIVE</h2>
-
-  <div class="video-archive-grid">
-
-    <div class="video-frame">
-      <video muted loop autoplay playsinline preload="none">
-        <source data-src="album01.mp4" type="video/mp4">
-      </video>
+    <div class="playlist">
+      <a href="https://open.spotify.com/playlist/37i9dQZF1DZ06evO3d1tc3" target="_blank">
+        THIS IS MADE IN M →
+      </a>
     </div>
 
-    <div class="video-frame">
-      <video muted loop autoplay playsinline preload="none">
-        <source data-src="album02.mp4" type="video/mp4">
-      </video>
+    <div class="playlist">
+      <a href="https://open.spotify.com/playlist/2DOrjASr7kmWTumw2jOX0G?si=xKzdWitFSruMYBVJv9d1tg" target="_blank">
+        BEATS CHINGONES →
+      </a>
     </div>
+  </section>
 
-    <div class="video-frame">
-      <video muted loop autoplay playsinline preload="none">
-        <source data-src="album03.mp4" type="video/mp4">
-      </video>
+  <section class="featured">
+    <h2>RECENT RELEASES</h2>
+
+    <div class="release-grid">
+      <a class="release-card" href="https://open.spotify.com/intl-de/album/4eJsXtiVnMUKUMoapDqOUr?si=uWaGAU-tTleBJ7pX8CsvBw" target="_blank">
+        <div class="release-cover">
+          <img data-src="snowing.png" alt="Snowing cover">
+        </div>
+        <div class="release-title">Snowing</div>
+      </a>
+
+      <a class="release-card" href="https://madeinm.bandcamp.com/track/bifurca" target="_blank">
+        <div class="release-cover">
+          <img data-src="bifurca.png" alt="Bifurca cover">
+        </div>
+        <div class="release-title">bifurca</div>
+      </a>
     </div>
+  </section>
 
-  </div>
-</section>
+  <section class="archive" id="records">
+    <div class="archive-inner">
 
-<script>
+      <div class="archive-heading">
+        <div class="archive-kicker">collection of pressed works</div>
+        <h2 class="archive-title">RECORDS</h2>
+        <p class="archive-note">
+          physical releases on vinyl
+        </p>
+      </div>
 
-function loadImages() {
-  document.querySelectorAll("img[data-src]").forEach(img => {
-    img.src = img.dataset.src;
-  });
-}
+      <div class="records-layout">
+        <div class="records-row">
+          <a class="archive-card" href="https://sichtexot.com/products/sole-spirito-special" target="_blank">
+            <div class="archive-cover">
+              <img data-src="archive-01.png" alt="Sole Spirito cover">
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Sole Spirito</div>
+              <div class="archive-year">2024</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </a>
 
-function loadVideos() {
-  document.querySelectorAll("video source[data-src]").forEach(src => {
-    src.src = src.dataset.src;
-    src.parentElement.load();
-  });
-}
+          <a class="archive-card" href="https://ear-sight.bandcamp.com/album/flux" target="_blank">
+            <div class="archive-cover">
+              <img data-src="archive-02.png" alt="Flux cover">
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Flux</div>
+              <div class="archive-year">2024</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </a>
 
-window.addEventListener("load", () => {
-  setTimeout(loadImages, 100);
-  setTimeout(loadVideos, 400);
-});
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-03.png" alt="Garbeo cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Garbeo</div>
+              <div class="archive-year">2020</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+        </div>
 
-</script>
+        <div class="records-row">
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-04.png" alt="Fungus cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Fungus</div>
+              <div class="archive-year">2018</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-05.png" alt="Nest cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Nest</div>
+              <div class="archive-year">2016</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-07.png" alt="Dalsy cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Dalsy</div>
+              <div class="archive-year">2016</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-06.png" alt="Sumergido cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Sumergido</div>
+              <div class="archive-year">2015</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="archive-subsection">
+        <div class="archive-subtitle">FANSO</div>
+
+        <div class="fanso-row">
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="fanso-01.png" alt="Música para Lagartos cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Música para Lagartos</div>
+              <div class="archive-year">2018</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="fanso-02.png" alt="Acid House cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Acid House</div>
+              <div class="archive-year">2015</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="video-archive" id="archive">
+    <div class="video-archive-inner">
+
+      <div class="video-archive-heading">
+        <div class="video-archive-kicker">moving archive</div>
+        <h2 class="video-archive-title">ARCHIVE</h2>
+        <p class="video-archive-note">
+          open a fragment, follow it further
+        </p>
+      </div>
+
+      <div class="video-archive-grid">
+
+        <a class="video-entry horizontal rotate-left" href="https://www.youtube.com/watch?v=KhXDxHHVe80&list=RDKhXDxHHVe80&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album01.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
+
+        <a class="video-entry shift-down" href="https://www.youtube.com/watch?v=3ze-W_js1NE&list=RD3ze-W_js1NE&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album02.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
+
+        <a class="video-entry rotate-right" href="https://www.youtube.com/watch?v=DGIMU3S2GfE&list=RDDGIMU3S2GfE&start_radio=1&t=1389s" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album03.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
+
+        <a class="video-entry shift-up lift-huge small" href="https://www.youtube.com/watch?v=HpiWTDOin6Y&list=RDHpiWTDOin6Y&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album04.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
+
+        <a class="video-entry rotate-left span-center" href="https://www.youtube.com/watch?v=2qWaL_IBh0Y&list=RD2qWaL_IBh0Y&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album07.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
+
+        <a class="video-entry horizontal" href="https://www.youtube.com/watch?v=Se9P4Rdx-n8&list=RDSe9P4Rdx-n8&start_radio=1&t=1497s" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album05.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
+
+        <a class="video-entry horizontal lift-medium" href="https://www.youtube.com/watch?v=rEjIRpISPEM&list=RDrEjIRpISPEM&start_radio=1" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album06.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
+
+        <a class="video-entry horizontal lift-huge rotate-right end-right" href="https://www.youtube.com/watch?v=RrTzG_OuCG8" target="_blank">
+          <div class="video-frame">
+            <video autoplay muted loop playsinline preload="none">
+              <source data-src="album08.mp4" type="video/mp4">
+            </video>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bio">
+    <p>
+      Madrid / Berlin<br>
+      dust / tape / groove
+    </p>
+  </section>
+
+  <section class="links">
+    <h2>LINKS</h2>
+
+    <div class="link-list">
+      <a href="https://open.spotify.com/intl-de/artist/5schXx0Ys4N52iU7On2j4c" target="_blank">SPOTIFY →</a>
+      <a href="https://soundcloud.com/madeinm" target="_blank">SOUNDCLOUD →</a>
+      <a href="https://madeinm.bandcamp.com/" target="_blank">BANDCAMP →</a>
+      <a href="https://www.instagram.com/made.in.m/?hl=de" target="_blank">INSTAGRAM →</a>
+      <a href="mailto:madeinmbeats@gmail.com">EMAIL →</a>
+    </div>
+  </section>
+
+  <section class="imprint" id="imprint">
+    <h2>IMPRINT</h2>
+    <p>
+      Made in M<br>
+      Berlin, Germany<br>
+      contact: madeinmbeats@gmail.com
+    </p>
+  </section>
+
+  <script>
+    function loadImages(selector) {
+      document.querySelectorAll(selector).forEach((img) => {
+        const src = img.getAttribute('data-src');
+        if (src && !img.getAttribute('src')) {
+          img.setAttribute('src', src);
+        }
+      });
+    }
+
+    function loadVideos(selector) {
+      document.querySelectorAll(selector).forEach((video) => {
+        const source = video.querySelector('source[data-src]');
+        if (source && !source.getAttribute('src')) {
+          source.setAttribute('src', source.getAttribute('data-src'));
+          video.load();
+
+          const playPromise = video.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+          }
+        }
+      });
+    }
+
+    function runPhasedLoading() {
+      loadImages('.featured img[data-src]');
+
+      window.setTimeout(() => {
+        loadImages('.archive img[data-src]');
+      }, 150);
+
+      window.setTimeout(() => {
+        loadVideos('.video-archive video');
+      }, 300);
+    }
+
+    window.addEventListener('load', () => {
+      const heroVideo = document.querySelector('.bg-video');
+
+      if (!heroVideo) {
+        runPhasedLoading();
+        return;
+      }
+
+      let started = false;
+
+      function startOnce() {
+        if (started) return;
+        started = true;
+        runPhasedLoading();
+      }
+
+      if (heroVideo.readyState >= 3) {
+        startOnce();
+      } else {
+        heroVideo.addEventListener('loadeddata', startOnce, { once: true });
+        heroVideo.addEventListener('canplay', startOnce, { once: true });
+        window.setTimeout(startOnce, 2500);
+      }
+    });
+  </script>
 
 </body>
 </html>
