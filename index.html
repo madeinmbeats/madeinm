@@ -649,12 +649,16 @@
         text-align: center;
       }
 
-      .records-row,
-      .fanso-row {
+      .records-layout {
         display: grid;
         grid-template-columns: repeat(2, minmax(140px, 1fr));
         gap: 18px;
-        justify-content: center;
+        max-width: 340px;
+        margin: 0 auto 70px;
+      }
+
+      .records-row {
+        display: contents;
       }
 
       .archive-card {
@@ -668,18 +672,35 @@
         gap: 6px;
       }
 
+      /* móvil exacto:
+         fila 1: Sole Spirito / Flux
+         fila 2: Garbeo / Fungus
+         fila 3: Nest / Dalsy
+         fila 4: Sumergido centrado
+      */
+      .records-layout .records-row:nth-child(1) .archive-card:nth-child(1) { order: 1; }
+      .records-layout .records-row:nth-child(1) .archive-card:nth-child(2) { order: 2; }
+      .records-layout .records-row:nth-child(1) .archive-card:nth-child(3) { order: 3; }
+
+      .records-layout .records-row:nth-child(2) .archive-card:nth-child(1) { order: 4; }
+      .records-layout .records-row:nth-child(2) .archive-card:nth-child(2) { order: 5; }
+      .records-layout .records-row:nth-child(2) .archive-card:nth-child(3) { order: 6; }
+      .records-layout .records-row:nth-child(2) .archive-card:nth-child(4) {
+        order: 7;
+        grid-column: 1 / span 2;
+        max-width: 150px;
+        margin: 0 auto;
+      }
+
       .archive-subsection {
         max-width: 340px;
       }
 
-      .records-layout {
-        max-width: 340px;
-      }
-
-      .records-row:last-child .archive-card:last-child {
-        grid-column: span 2;
-        max-width: 150px;
-        margin: 0 auto;
+      .fanso-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 18px;
+        justify-content: center;
       }
 
       .video-archive-grid {
