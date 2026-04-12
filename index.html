@@ -624,7 +624,7 @@
       .release-grid {
         grid-template-columns: repeat(2, minmax(140px, 1fr));
         gap: 18px;
-        max-width: 520px;
+        max-width: 340px;
       }
 
       .release-card {
@@ -669,7 +669,17 @@
       }
 
       .archive-subsection {
-        max-width: 520px;
+        max-width: 340px;
+      }
+
+      .records-layout {
+        max-width: 340px;
+      }
+
+      .records-row:last-child .archive-card:last-child {
+        grid-column: span 2;
+        max-width: 150px;
+        margin: 0 auto;
       }
 
       .video-archive-grid {
