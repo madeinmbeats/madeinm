@@ -236,6 +236,10 @@
       margin: 0 auto 70px;
     }
 
+    .records-layout-mobile {
+      display: none;
+    }
+
     .records-row {
       display: flex;
       justify-content: center;
@@ -650,43 +654,33 @@
       }
 
       .records-layout {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(140px, 1fr));
-        gap: 18px;
+        display: none;
+      }
+
+      .records-layout-mobile {
+        display: block;
         max-width: 340px;
         margin: 0 auto 70px;
       }
 
-      .records-row {
-        display: contents;
+      .records-mobile-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 18px;
       }
 
-      .archive-card {
+      .records-mobile-grid .archive-card {
         width: 100%;
         flex: none;
       }
 
-      .archive-meta {
+      .records-mobile-grid .archive-meta {
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
       }
 
-      /* móvil exacto:
-         fila 1: Sole Spirito / Flux
-         fila 2: Garbeo / Fungus
-         fila 3: Nest / Dalsy
-         fila 4: Sumergido centrado
-      */
-      .records-layout .records-row:nth-child(1) .archive-card:nth-child(1) { order: 1; }
-      .records-layout .records-row:nth-child(1) .archive-card:nth-child(2) { order: 2; }
-      .records-layout .records-row:nth-child(1) .archive-card:nth-child(3) { order: 3; }
-
-      .records-layout .records-row:nth-child(2) .archive-card:nth-child(1) { order: 4; }
-      .records-layout .records-row:nth-child(2) .archive-card:nth-child(2) { order: 5; }
-      .records-layout .records-row:nth-child(2) .archive-card:nth-child(3) { order: 6; }
-      .records-layout .records-row:nth-child(2) .archive-card:nth-child(4) {
-        order: 7;
+      .records-mobile-grid .archive-card.sumergido-mobile {
         grid-column: 1 / span 2;
         max-width: 150px;
         margin: 0 auto;
@@ -863,6 +857,92 @@
           </div>
 
           <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-06.png" alt="Sumergido cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Sumergido</div>
+              <div class="archive-year">2015</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="records-layout-mobile">
+        <div class="records-mobile-grid">
+          <a class="archive-card" href="https://sichtexot.com/products/sole-spirito-special" target="_blank">
+            <div class="archive-cover">
+              <img data-src="archive-01.png" alt="Sole Spirito cover">
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Sole Spirito</div>
+              <div class="archive-year">2024</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </a>
+
+          <a class="archive-card" href="https://ear-sight.bandcamp.com/album/flux" target="_blank">
+            <div class="archive-cover">
+              <img data-src="archive-02.png" alt="Flux cover">
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Flux</div>
+              <div class="archive-year">2024</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </a>
+
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-03.png" alt="Garbeo cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Garbeo</div>
+              <div class="archive-year">2020</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-04.png" alt="Fungus cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Fungus</div>
+              <div class="archive-year">2018</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-05.png" alt="Nest cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Nest</div>
+              <div class="archive-year">2016</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+
+          <div class="archive-card archive-card-static">
+            <div class="archive-cover">
+              <img data-src="archive-07.png" alt="Dalsy cover">
+              <span class="archive-status">Sold out</span>
+            </div>
+            <div class="archive-meta">
+              <div class="archive-name">Dalsy</div>
+              <div class="archive-year">2016</div>
+            </div>
+            <div class="archive-format">12" vinyl</div>
+          </div>
+
+          <div class="archive-card archive-card-static sumergido-mobile">
             <div class="archive-cover">
               <img data-src="archive-06.png" alt="Sumergido cover">
               <span class="archive-status">Sold out</span>
